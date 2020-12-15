@@ -9,32 +9,32 @@ using System.Windows.Forms;
 
 namespace ZephyrNetCafeGUI
 {
-    public partial class AddComputerDialog : UserControl
+    public partial class AddShopItemDialog : UserControl
     {
         public AdminDashboardForm AdminForm { set; get; }
         private string AuthUsername { set; get; }
         private string AuthPassword { set; get; }
-        public AddComputerDialog(string authname, string authpass)
+        public AddShopItemDialog(string authname, string authpass)
         {
             AuthPassword = authname;
             AuthPassword = authpass;
             InitializeComponent();
         }
-
         private async void ButtonAdd_Click(object sender, EventArgs e)
         {
-            foreach(Control control in Controls)
+            foreach (Control control in Controls)
             {
                 control.Enabled = false;
             }
             try
             {
-                var response = await $"{Constant.URL}/api/computer"
+                var response = await $"{Constant.URL}/api/shop"
                     .PostJsonAsync(new
                     {
-                        Name = TextBoxComputerName.Text,
-                        Spec = RichTextBoxComputerSpec.Text,
+                        Name = TextBoxName.Text,
                         AuthUsername = this.AuthUsername,
+                        Price = (int)NumericPrice.Value,
+                        Quantity = (int)NumericQuantity.Value,
                         AuthPassword = this.AuthPassword
                     });
                 if (response.StatusCode == 200)
@@ -66,6 +66,5 @@ namespace ZephyrNetCafeGUI
                 MessageBox.Show(exc.Message);
             }
         }
-
     }
 }

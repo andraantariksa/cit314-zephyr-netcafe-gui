@@ -52,18 +52,29 @@ namespace ZephyrNetCafeGUI
             this.ColumnActiveComputerUsageStartDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LabelActiveComputer = new System.Windows.Forms.Label();
             this.LabelWelcomeAdmin = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.TabPageShopItem = new System.Windows.Forms.TabPage();
             this.vScrollBar3 = new System.Windows.Forms.VScrollBar();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.ButtonAddShopItem = new System.Windows.Forms.Button();
+            this.ButtonEditShopItem = new System.Windows.Forms.Button();
+            this.ButtonDeleteShopItem = new System.Windows.Forms.Button();
+            this.DataGridViewShopItem = new System.Windows.Forms.DataGridView();
+            this.ColumnShopItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnShopItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnShopItemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnShopItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnShopItemIsDeleted = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label13 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.vScrollBar2 = new System.Windows.Forms.VScrollBar();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.DataGridViewUserList = new System.Windows.Forms.DataGridView();
+            this.ColumnUserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUserUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUserEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUserDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUserRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
@@ -83,10 +94,10 @@ namespace ZephyrNetCafeGUI
             this.TabPageComputer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewComputerItemList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewComputerActive)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.TabPageShopItem.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewShopItem)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewUserList)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
@@ -94,7 +105,7 @@ namespace ZephyrNetCafeGUI
             // TabControlComputer
             // 
             this.TabControlComputer.Controls.Add(this.TabPageComputer);
-            this.TabControlComputer.Controls.Add(this.tabPage3);
+            this.TabControlComputer.Controls.Add(this.TabPageShopItem);
             this.TabControlComputer.Controls.Add(this.tabPage2);
             this.TabControlComputer.Controls.Add(this.tabPage4);
             this.TabControlComputer.Location = new System.Drawing.Point(12, 12);
@@ -298,63 +309,106 @@ namespace ZephyrNetCafeGUI
             this.LabelWelcomeAdmin.TabIndex = 0;
             this.LabelWelcomeAdmin.Text = "Welcome, Manager x!";
             // 
-            // tabPage3
+            // TabPageShopItem
             // 
-            this.tabPage3.Controls.Add(this.vScrollBar3);
-            this.tabPage3.Controls.Add(this.button5);
-            this.tabPage3.Controls.Add(this.button4);
-            this.tabPage3.Controls.Add(this.button3);
-            this.tabPage3.Controls.Add(this.dataGridView2);
-            this.tabPage3.Controls.Add(this.label13);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1254, 737);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Shop Items Management";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.TabPageShopItem.Controls.Add(this.vScrollBar3);
+            this.TabPageShopItem.Controls.Add(this.ButtonAddShopItem);
+            this.TabPageShopItem.Controls.Add(this.ButtonEditShopItem);
+            this.TabPageShopItem.Controls.Add(this.ButtonDeleteShopItem);
+            this.TabPageShopItem.Controls.Add(this.DataGridViewShopItem);
+            this.TabPageShopItem.Controls.Add(this.label13);
+            this.TabPageShopItem.Location = new System.Drawing.Point(4, 24);
+            this.TabPageShopItem.Name = "TabPageShopItem";
+            this.TabPageShopItem.Padding = new System.Windows.Forms.Padding(3);
+            this.TabPageShopItem.Size = new System.Drawing.Size(1254, 737);
+            this.TabPageShopItem.TabIndex = 2;
+            this.TabPageShopItem.Text = "Shop Items Management";
+            this.TabPageShopItem.UseVisualStyleBackColor = true;
             // 
             // vScrollBar3
             // 
-            this.vScrollBar3.Location = new System.Drawing.Point(1083, 56);
+            this.vScrollBar3.Location = new System.Drawing.Point(1118, 45);
             this.vScrollBar3.Name = "vScrollBar3";
             this.vScrollBar3.Size = new System.Drawing.Size(17, 439);
             this.vScrollBar3.TabIndex = 3;
             // 
-            // button5
+            // ButtonAddShopItem
             // 
-            this.button5.Location = new System.Drawing.Point(749, 511);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(113, 37);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "Add Item";
-            this.button5.UseVisualStyleBackColor = true;
+            this.ButtonAddShopItem.Location = new System.Drawing.Point(740, 505);
+            this.ButtonAddShopItem.Name = "ButtonAddShopItem";
+            this.ButtonAddShopItem.Size = new System.Drawing.Size(113, 37);
+            this.ButtonAddShopItem.TabIndex = 2;
+            this.ButtonAddShopItem.Text = "Add Item";
+            this.ButtonAddShopItem.UseVisualStyleBackColor = true;
+            this.ButtonAddShopItem.Click += new System.EventHandler(this.ButtonAddShopItem_Click);
             // 
-            // button4
+            // ButtonEditShopItem
             // 
-            this.button4.Location = new System.Drawing.Point(868, 511);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 37);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Edit Item";
-            this.button4.UseVisualStyleBackColor = true;
+            this.ButtonEditShopItem.Location = new System.Drawing.Point(859, 505);
+            this.ButtonEditShopItem.Name = "ButtonEditShopItem";
+            this.ButtonEditShopItem.Size = new System.Drawing.Size(113, 37);
+            this.ButtonEditShopItem.TabIndex = 2;
+            this.ButtonEditShopItem.Text = "Edit Item";
+            this.ButtonEditShopItem.UseVisualStyleBackColor = true;
+            this.ButtonEditShopItem.Click += new System.EventHandler(this.ButtonEditShopItem_Click);
             // 
-            // button3
+            // ButtonDeleteShopItem
             // 
-            this.button3.Location = new System.Drawing.Point(987, 511);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 37);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Delete Item";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ButtonDeleteShopItem.Location = new System.Drawing.Point(978, 505);
+            this.ButtonDeleteShopItem.Name = "ButtonDeleteShopItem";
+            this.ButtonDeleteShopItem.Size = new System.Drawing.Size(113, 37);
+            this.ButtonDeleteShopItem.TabIndex = 2;
+            this.ButtonDeleteShopItem.Text = "Delete Item";
+            this.ButtonDeleteShopItem.UseVisualStyleBackColor = true;
+            this.ButtonDeleteShopItem.Click += new System.EventHandler(this.ButtonDeleteShopItem_Click);
             // 
-            // dataGridView2
+            // DataGridViewShopItem
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(33, 56);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1067, 439);
-            this.dataGridView2.TabIndex = 1;
+            this.DataGridViewShopItem.AllowUserToAddRows = false;
+            this.DataGridViewShopItem.AllowUserToDeleteRows = false;
+            this.DataGridViewShopItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewShopItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnShopItemID,
+            this.ColumnShopItemName,
+            this.ColumnShopItemPrice,
+            this.ColumnShopItemQuantity,
+            this.ColumnShopItemIsDeleted});
+            this.DataGridViewShopItem.Location = new System.Drawing.Point(45, 56);
+            this.DataGridViewShopItem.MultiSelect = false;
+            this.DataGridViewShopItem.Name = "DataGridViewShopItem";
+            this.DataGridViewShopItem.ReadOnly = true;
+            this.DataGridViewShopItem.Size = new System.Drawing.Size(1070, 428);
+            this.DataGridViewShopItem.TabIndex = 1;
+            // 
+            // ColumnShopItemID
+            // 
+            this.ColumnShopItemID.HeaderText = "Item ID";
+            this.ColumnShopItemID.Name = "ColumnShopItemID";
+            this.ColumnShopItemID.ReadOnly = true;
+            // 
+            // ColumnShopItemName
+            // 
+            this.ColumnShopItemName.HeaderText = "Item Name";
+            this.ColumnShopItemName.Name = "ColumnShopItemName";
+            this.ColumnShopItemName.ReadOnly = true;
+            // 
+            // ColumnShopItemPrice
+            // 
+            this.ColumnShopItemPrice.HeaderText = "Item Price";
+            this.ColumnShopItemPrice.Name = "ColumnShopItemPrice";
+            this.ColumnShopItemPrice.ReadOnly = true;
+            // 
+            // ColumnShopItemQuantity
+            // 
+            this.ColumnShopItemQuantity.HeaderText = "Quantity";
+            this.ColumnShopItemQuantity.Name = "ColumnShopItemQuantity";
+            this.ColumnShopItemQuantity.ReadOnly = true;
+            // 
+            // ColumnShopItemIsDeleted
+            // 
+            this.ColumnShopItemIsDeleted.HeaderText = "Is Deleted";
+            this.ColumnShopItemIsDeleted.Name = "ColumnShopItemIsDeleted";
+            this.ColumnShopItemIsDeleted.ReadOnly = true;
             // 
             // label13
             // 
@@ -370,7 +424,7 @@ namespace ZephyrNetCafeGUI
             this.tabPage2.Controls.Add(this.vScrollBar2);
             this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.button7);
-            this.tabPage2.Controls.Add(this.dataGridView4);
+            this.tabPage2.Controls.Add(this.DataGridViewUserList);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
@@ -405,13 +459,59 @@ namespace ZephyrNetCafeGUI
             this.button7.Text = "Delete User";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // dataGridView4
+            // DataGridViewUserList
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(29, 61);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(1070, 448);
-            this.dataGridView4.TabIndex = 1;
+            this.DataGridViewUserList.AllowUserToAddRows = false;
+            this.DataGridViewUserList.AllowUserToDeleteRows = false;
+            this.DataGridViewUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewUserList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnUserID,
+            this.ColumnUserUsername,
+            this.ColumnUserName,
+            this.ColumnUserEmail,
+            this.ColumnUserDuration,
+            this.ColumnUserRole});
+            this.DataGridViewUserList.Location = new System.Drawing.Point(29, 61);
+            this.DataGridViewUserList.Name = "DataGridViewUserList";
+            this.DataGridViewUserList.ReadOnly = true;
+            this.DataGridViewUserList.Size = new System.Drawing.Size(1070, 448);
+            this.DataGridViewUserList.TabIndex = 1;
+            // 
+            // ColumnUserID
+            // 
+            this.ColumnUserID.HeaderText = "User ID";
+            this.ColumnUserID.Name = "ColumnUserID";
+            this.ColumnUserID.ReadOnly = true;
+            // 
+            // ColumnUserUsername
+            // 
+            this.ColumnUserUsername.HeaderText = "Username";
+            this.ColumnUserUsername.Name = "ColumnUserUsername";
+            this.ColumnUserUsername.ReadOnly = true;
+            // 
+            // ColumnUserName
+            // 
+            this.ColumnUserName.HeaderText = "Name";
+            this.ColumnUserName.Name = "ColumnUserName";
+            this.ColumnUserName.ReadOnly = true;
+            // 
+            // ColumnUserEmail
+            // 
+            this.ColumnUserEmail.HeaderText = "Email";
+            this.ColumnUserEmail.Name = "ColumnUserEmail";
+            this.ColumnUserEmail.ReadOnly = true;
+            // 
+            // ColumnUserDuration
+            // 
+            this.ColumnUserDuration.HeaderText = "Duration Remaining";
+            this.ColumnUserDuration.Name = "ColumnUserDuration";
+            this.ColumnUserDuration.ReadOnly = true;
+            // 
+            // ColumnUserRole
+            // 
+            this.ColumnUserRole.HeaderText = "Role";
+            this.ColumnUserRole.Name = "ColumnUserRole";
+            this.ColumnUserRole.ReadOnly = true;
             // 
             // label3
             // 
@@ -461,6 +561,7 @@ namespace ZephyrNetCafeGUI
             // 
             // TimerControlComputerActive
             // 
+            this.TimerControlComputerActive.Enabled = true;
             this.TimerControlComputerActive.Interval = 60000;
             this.TimerControlComputerActive.Tick += new System.EventHandler(this.TimerControlComputerActive_Tick);
             // 
@@ -533,12 +634,12 @@ namespace ZephyrNetCafeGUI
             this.TabPageComputer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewComputerItemList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewComputerActive)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.TabPageShopItem.ResumeLayout(false);
+            this.TabPageShopItem.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewShopItem)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewUserList)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
@@ -552,14 +653,14 @@ namespace ZephyrNetCafeGUI
         private System.Windows.Forms.TabPage TabPageComputer;
         private System.Windows.Forms.Label LabelActiveComputer;
         private System.Windows.Forms.Label LabelWelcomeAdmin;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TabPage TabPageShopItem;
+        private System.Windows.Forms.Button ButtonAddShopItem;
+        private System.Windows.Forms.Button ButtonEditShopItem;
+        private System.Windows.Forms.Button ButtonDeleteShopItem;
+        private System.Windows.Forms.DataGridView DataGridViewShopItem;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView DataGridViewUserList;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView dataGridView3;
@@ -597,5 +698,16 @@ namespace ZephyrNetCafeGUI
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.Button ButtonDeleteComputer;
         private System.Windows.Forms.Button ButtonAddComputer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnShopItemID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnShopItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnShopItemPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnShopItemQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnShopItemIsDeleted;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUserID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUserUsername;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUserName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUserEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUserDuration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUserRole;
     }
 }

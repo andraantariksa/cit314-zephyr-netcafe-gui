@@ -1,55 +1,63 @@
 ﻿using System;
+using Flurl.Http;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Text;
-using Flurl.Http;
 using System.Windows.Forms;
 
 namespace ZephyrNetCafeGUI
 {
-    public partial class AddComputerDialog : UserControl
+    public partial class EditShopItemDialog : UserControl
     {
         public AdminDashboardForm AdminForm { set; get; }
         private string AuthUsername { set; get; }
         private string AuthPassword { set; get; }
-        public AddComputerDialog(string authname, string authpass)
+        private long ProductID { set; get; }
+        public EditShopItemDialog(string authname, string authpass, long productid, string prodname, int price)
         {
             AuthPassword = authname;
             AuthPassword = authpass;
+            ProductID = productid;
+            TextBoxName.Text = $"{prodname}";
+            NumericPrice.Value = (int)price;
             InitializeComponent();
         }
 
-        private async void ButtonAdd_Click(object sender, EventArgs e)
+        private async void ButtonSave_Click(object sender, EventArgs e)
         {
-            foreach(Control control in Controls)
-            {
-                control.Enabled = false;
-            }
             try
             {
-                var response = await $"{Constant.URL}/api/computer"
-                    .PostJsonAsync(new
+                var response = await $"{Constant.URL}/api/shop"
+                    .PutJsonAsync(new 
                     {
-                        Name = TextBoxComputerName.Text,
-                        Spec = RichTextBoxComputerSpec.Text,
+                        ProductID = this.ProductID,
+                        Name = TextBoxName.Text,
+                        Price = (int)NumericPrice.Value,
                         AuthUsername = this.AuthUsername,
                         AuthPassword = this.AuthPassword
                     });
+                ButtonSave.Enabled = false;
                 if (response.StatusCode == 200)
                 {
-                    MessageBox.Show("Succesfully added in Database!");
+                    MessageBox.Show("Successfully edit!");
                 }
             }
             catch (FlurlHttpException exc)
             {
                 MessageBox.Show(exc.Message);
             }
-            foreach (Control control in Controls)
-            {
-                control.Enabled = true;
-            }
+        }
+
+        private void TextBoxName_TextChanged(object sender, EventArgs e)
+        {
+            ButtonSave.Enabled = true;
+        }
+
+        private void NumericPrice_ValueChanged(object sender, EventArgs e)
+        {
+            ButtonSave.Enabled = true;
         }
 
         private void ButtonClose_Click(object sender, EventArgs e)
@@ -57,8 +65,7 @@ namespace ZephyrNetCafeGUI
             try
             {
                 AdminForm.Enabled = true;
-                AdminForm.UpdateComputerActive();
-                AdminForm.UpdateComputerItemList();
+                AdminForm.UpdateShopItemList();
                 this.Dispose();
             }
             catch (Exception exc)
@@ -66,6 +73,5 @@ namespace ZephyrNetCafeGUI
                 MessageBox.Show(exc.Message);
             }
         }
-
     }
 }
