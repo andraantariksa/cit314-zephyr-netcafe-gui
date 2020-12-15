@@ -52,7 +52,7 @@ namespace ZephyrNetCafeGUI
             this.ColumnActiveComputerUsageStartDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LabelActiveComputer = new System.Windows.Forms.Label();
             this.LabelWelcomeAdmin = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.TabPageShopItem = new System.Windows.Forms.TabPage();
             this.vScrollBar3 = new System.Windows.Forms.VScrollBar();
             this.ButtonAddShopItem = new System.Windows.Forms.Button();
             this.ButtonEditShopItem = new System.Windows.Forms.Button();
@@ -88,7 +88,7 @@ namespace ZephyrNetCafeGUI
             this.TabPageComputer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewComputerItemList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewComputerActive)).BeginInit();
-            this.tabPage3.SuspendLayout();
+            this.TabPageShopItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewShopItem)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
@@ -99,7 +99,7 @@ namespace ZephyrNetCafeGUI
             // TabControlComputer
             // 
             this.TabControlComputer.Controls.Add(this.TabPageComputer);
-            this.TabControlComputer.Controls.Add(this.tabPage3);
+            this.TabControlComputer.Controls.Add(this.TabPageShopItem);
             this.TabControlComputer.Controls.Add(this.tabPage2);
             this.TabControlComputer.Controls.Add(this.tabPage4);
             this.TabControlComputer.Location = new System.Drawing.Point(12, 12);
@@ -303,21 +303,21 @@ namespace ZephyrNetCafeGUI
             this.LabelWelcomeAdmin.TabIndex = 0;
             this.LabelWelcomeAdmin.Text = "Welcome, Manager x!";
             // 
-            // tabPage3
+            // TabPageShopItem
             // 
-            this.tabPage3.Controls.Add(this.vScrollBar3);
-            this.tabPage3.Controls.Add(this.ButtonAddShopItem);
-            this.tabPage3.Controls.Add(this.ButtonEditShopItem);
-            this.tabPage3.Controls.Add(this.ButtonDeleteShopItem);
-            this.tabPage3.Controls.Add(this.DataGridViewShopItem);
-            this.tabPage3.Controls.Add(this.label13);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1254, 737);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Shop Items Management";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.TabPageShopItem.Controls.Add(this.vScrollBar3);
+            this.TabPageShopItem.Controls.Add(this.ButtonAddShopItem);
+            this.TabPageShopItem.Controls.Add(this.ButtonEditShopItem);
+            this.TabPageShopItem.Controls.Add(this.ButtonDeleteShopItem);
+            this.TabPageShopItem.Controls.Add(this.DataGridViewShopItem);
+            this.TabPageShopItem.Controls.Add(this.label13);
+            this.TabPageShopItem.Location = new System.Drawing.Point(4, 24);
+            this.TabPageShopItem.Name = "TabPageShopItem";
+            this.TabPageShopItem.Padding = new System.Windows.Forms.Padding(3);
+            this.TabPageShopItem.Size = new System.Drawing.Size(1254, 737);
+            this.TabPageShopItem.TabIndex = 2;
+            this.TabPageShopItem.Text = "Shop Items Management";
+            this.TabPageShopItem.UseVisualStyleBackColor = true;
             // 
             // vScrollBar3
             // 
@@ -354,6 +354,7 @@ namespace ZephyrNetCafeGUI
             this.ButtonDeleteShopItem.TabIndex = 2;
             this.ButtonDeleteShopItem.Text = "Delete Item";
             this.ButtonDeleteShopItem.UseVisualStyleBackColor = true;
+            this.ButtonDeleteShopItem.Click += new System.EventHandler(this.ButtonDeleteShopItem_Click);
             // 
             // DataGridViewShopItem
             // 
@@ -581,8 +582,8 @@ namespace ZephyrNetCafeGUI
             this.TabPageComputer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewComputerItemList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewComputerActive)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.TabPageShopItem.ResumeLayout(false);
+            this.TabPageShopItem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewShopItem)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
@@ -600,7 +601,7 @@ namespace ZephyrNetCafeGUI
         private System.Windows.Forms.TabPage TabPageComputer;
         private System.Windows.Forms.Label LabelActiveComputer;
         private System.Windows.Forms.Label LabelWelcomeAdmin;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage TabPageShopItem;
         private System.Windows.Forms.Button ButtonAddShopItem;
         private System.Windows.Forms.Button ButtonEditShopItem;
         private System.Windows.Forms.Button ButtonDeleteShopItem;

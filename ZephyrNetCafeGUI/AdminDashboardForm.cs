@@ -228,13 +228,56 @@ namespace ZephyrNetCafeGUI
 
         private void ButtonEditShopItem_Click(object sender, EventArgs e)
         {
-            long s_ProductID = (long)DataGridViewShopItem.SelectedRows[0].Cells[0].Value;
-            string name = DataGridViewShopItem.SelectedRows[0].Cells[1].Value.ToString();
-            int price = (int)DataGridViewShopItem.SelectedRows[0].Cells[2].Value;
-            EditShopItemDialog EditDialog = new EditShopItemDialog(AuthUsername, AuthPassword, s_ProductID, name, price);
-            EditDialog.AdminForm = this;
-            Enabled = false;
-            EditDialog.Show();
+            if (DataGridViewShopItem.SelectedRows.Count > 0)
+            {
+                long s_ProductID = (long)DataGridViewShopItem.SelectedRows[0].Cells[0].Value;
+                string name = DataGridViewShopItem.SelectedRows[0].Cells[1].Value.ToString();
+                int price = (int)DataGridViewShopItem.SelectedRows[0].Cells[2].Value;
+                EditShopItemDialog EditDialog = new EditShopItemDialog(AuthUsername, AuthPassword, s_ProductID, name, price);
+                EditDialog.AdminForm = this;
+                Enabled = false;
+                EditDialog.Show();
+            }
+            else
+            {
+                MessageBox.Show("Not selected!");
+            }
+        }
+
+        private async void ButtonDeleteShopItem_Click(object sender, EventArgs e)
+        {
+            foreach (Control control in TabPageShopItem.Controls)
+            {
+                control.Enabled = false;
+            }
+            try
+            {
+                if (DataGridViewComputerItemList.SelectedRows.Count > 0)
+                {
+
+                    long s_ProductID = (long)DataGridViewShopItem.SelectedRows[0].Cells[0].Value;
+                    var response = await $"{Constant.URL}/api/shop"
+                        .SendJsonAsync(System.Net.Http.HttpMethod.Delete, new
+                        {
+                            ProductID = s_ProductID,
+                            AuthUsername = this.AuthUsername,
+                            AuthPassword = this.AuthPassword
+                        });
+                }
+            }
+            catch (FlurlHttpException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            foreach (Control control in TabPageShopItem.Controls)
+            {
+                control.Enabled = true;
+            }
         }
     }
 }
