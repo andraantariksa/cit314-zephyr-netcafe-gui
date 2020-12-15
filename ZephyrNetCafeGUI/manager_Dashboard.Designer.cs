@@ -31,37 +31,38 @@ namespace ZephyrNetCafeGUI
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.vScrollBar4 = new System.Windows.Forms.VScrollBar();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.vScrollBar3 = new System.Windows.Forms.VScrollBar();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.label14 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.vScrollBar2 = new System.Windows.Forms.VScrollBar();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.vScrollBar2 = new System.Windows.Forms.VScrollBar();
-            this.vScrollBar3 = new System.Windows.Forms.VScrollBar();
-            this.vScrollBar4 = new System.Windows.Forms.VScrollBar();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.label14 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -78,6 +79,8 @@ namespace ZephyrNetCafeGUI
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.vScrollBar4);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.label2);
@@ -90,13 +93,20 @@ namespace ZephyrNetCafeGUI
             this.tabPage1.Text = "Computer Management";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // vScrollBar4
+            // 
+            this.vScrollBar4.Location = new System.Drawing.Point(1087, 75);
+            this.vScrollBar4.Name = "vScrollBar4";
+            this.vScrollBar4.Size = new System.Drawing.Size(17, 419);
+            this.vScrollBar4.TabIndex = 2;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(27, 75);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1077, 477);
+            this.dataGridView1.Size = new System.Drawing.Size(1077, 419);
             this.dataGridView1.TabIndex = 1;
             // 
             // label2
@@ -117,22 +127,6 @@ namespace ZephyrNetCafeGUI
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome, Manager x!";
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.vScrollBar2);
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.button6);
-            this.tabPage2.Controls.Add(this.button7);
-            this.tabPage2.Controls.Add(this.dataGridView4);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1132, 579);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "User Management";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.vScrollBar3);
@@ -148,6 +142,40 @@ namespace ZephyrNetCafeGUI
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Shop Items Management";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // vScrollBar3
+            // 
+            this.vScrollBar3.Location = new System.Drawing.Point(1083, 56);
+            this.vScrollBar3.Name = "vScrollBar3";
+            this.vScrollBar3.Size = new System.Drawing.Size(17, 439);
+            this.vScrollBar3.TabIndex = 3;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(749, 511);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(113, 37);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "Add Item";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(868, 511);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(113, 37);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "Edit Item";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(987, 511);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(113, 37);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Delete Item";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // dataGridView2
             // 
@@ -167,90 +195,27 @@ namespace ZephyrNetCafeGUI
             this.label13.TabIndex = 0;
             this.label13.Text = "Shop Items Management";
             // 
-            // tabPage4
+            // tabPage2
             // 
-            this.tabPage4.Controls.Add(this.vScrollBar1);
-            this.tabPage4.Controls.Add(this.dataGridView3);
-            this.tabPage4.Controls.Add(this.label14);
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1132, 579);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Transaction Report Management";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPage2.Controls.Add(this.vScrollBar2);
+            this.tabPage2.Controls.Add(this.button6);
+            this.tabPage2.Controls.Add(this.button7);
+            this.tabPage2.Controls.Add(this.dataGridView4);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1132, 579);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "User Management";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView3
+            // vScrollBar2
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(33, 67);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowTemplate.Height = 25;
-            this.dataGridView3.Size = new System.Drawing.Size(1062, 485);
-            this.dataGridView3.TabIndex = 2;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(33, 32);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(179, 15);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "Transaction Report Management";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(987, 511);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 37);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Delete Item";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(868, 511);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 37);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Edit Item";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(749, 511);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(113, 37);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "Add Item";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 15);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "User Management";
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(29, 61);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowTemplate.Height = 25;
-            this.dataGridView4.Size = new System.Drawing.Size(1070, 448);
-            this.dataGridView4.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(748, 515);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 37);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Register User";
-            this.button1.UseVisualStyleBackColor = true;
+            this.vScrollBar2.Location = new System.Drawing.Point(1082, 61);
+            this.vScrollBar2.Name = "vScrollBar2";
+            this.vScrollBar2.Size = new System.Drawing.Size(17, 448);
+            this.vScrollBar2.TabIndex = 6;
             // 
             // button6
             // 
@@ -270,6 +235,37 @@ namespace ZephyrNetCafeGUI
             this.button7.Text = "Delete User";
             this.button7.UseVisualStyleBackColor = true;
             // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(29, 61);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowTemplate.Height = 25;
+            this.dataGridView4.Size = new System.Drawing.Size(1070, 448);
+            this.dataGridView4.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(29, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 15);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "User Management";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.vScrollBar1);
+            this.tabPage4.Controls.Add(this.dataGridView3);
+            this.tabPage4.Controls.Add(this.label14);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1132, 579);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Transaction Report Management";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // vScrollBar1
             // 
             this.vScrollBar1.Location = new System.Drawing.Point(1078, 67);
@@ -277,26 +273,41 @@ namespace ZephyrNetCafeGUI
             this.vScrollBar1.Size = new System.Drawing.Size(17, 485);
             this.vScrollBar1.TabIndex = 3;
             // 
-            // vScrollBar2
+            // dataGridView3
             // 
-            this.vScrollBar2.Location = new System.Drawing.Point(1082, 61);
-            this.vScrollBar2.Name = "vScrollBar2";
-            this.vScrollBar2.Size = new System.Drawing.Size(17, 448);
-            this.vScrollBar2.TabIndex = 6;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(33, 67);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowTemplate.Height = 25;
+            this.dataGridView3.Size = new System.Drawing.Size(1062, 485);
+            this.dataGridView3.TabIndex = 2;
             // 
-            // vScrollBar3
+            // label14
             // 
-            this.vScrollBar3.Location = new System.Drawing.Point(1083, 56);
-            this.vScrollBar3.Name = "vScrollBar3";
-            this.vScrollBar3.Size = new System.Drawing.Size(17, 439);
-            this.vScrollBar3.TabIndex = 3;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(33, 32);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(179, 15);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Transaction Report Management";
             // 
-            // vScrollBar4
+            // button1
             // 
-            this.vScrollBar4.Location = new System.Drawing.Point(1087, 75);
-            this.vScrollBar4.Name = "vScrollBar4";
-            this.vScrollBar4.Size = new System.Drawing.Size(17, 477);
-            this.vScrollBar4.TabIndex = 2;
+            this.button1.Location = new System.Drawing.Point(991, 500);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 37);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Delete Computer";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(872, 500);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(113, 37);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Add Computer";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // manager_Dashboard
             // 
@@ -310,15 +321,15 @@ namespace ZephyrNetCafeGUI
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -345,9 +356,10 @@ namespace ZephyrNetCafeGUI
         private System.Windows.Forms.VScrollBar vScrollBar4;
         private System.Windows.Forms.VScrollBar vScrollBar3;
         private System.Windows.Forms.VScrollBar vScrollBar2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.VScrollBar vScrollBar1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
