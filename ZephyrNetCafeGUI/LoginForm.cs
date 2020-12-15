@@ -47,68 +47,72 @@ namespace ZephyrNetCafeGUI
             var userPassword = TextBoxPassword.Text;
             try
             {
-                var result = await $"{Constant.URL}/api/user/auth"
-                    .AllowAnyHttpStatus()
+                var user = await $"{Constant.URL}/api/user/auth"
                     .PostJsonAsync(new
                     {
                         Username = userUsername,
                         Password = userPassword
-                    });
-                switch (result.StatusCode)
+                    })
+                    .ReceiveJson<User>();
+
+                switch (ComboBoxAccess.Text)
                 {
-                    case 403:
-                        MessageBox.Show("Username or password does not match");
-                        break;
-                    case 200:
-                        var user = await $"{Constant.URL}/api/user/single/{userUsername}"
-                            .GetJsonAsync<User>();
-                        switch (ComboBoxAccess.Text)
+                    case "User":
                         {
-                            case "User":
-                                {
-                                    var PCID = Int64.Parse(TextBoxPCID.Text);
-                                    var formDashboard = new DashboardForm(userUsername, userPassword, PCID);
-                                    formDashboard.Show();
-                                }
-                                break;
-
-                            case "Staff":
-                                {
-                                    if (user.Role != User.Roles.Staff)
-                                    {
-                                        MessageBox.Show($"{user.Role.ToString()} can not login as staff!");
-                                        return;
-                                    }
-                                    var formDashboard = new StaffDashboardForm(userUsername, userPassword);
-                                    formDashboard.Show();
-                                }
-                                break;
-                            case "Admin":
-                                {
-                                    if (user.Role != User.Roles.Admin)
-                                    {
-                                        MessageBox.Show($"{user.Role.ToString()} can not login as admin!");
-                                        return;
-                                    }
-                                    var formDashboard = new AdminDashboardForm(userUsername, userPassword);
-                                    formDashboard.Show();
-                                }
-                                break;
-                            default:
-                                MessageBox.Show("No such roles exists!");
-                                break;
+                            if (user.Duration <= 0)
+                            {
+                                MessageBox.Show("You do not have any duration to use the computer");
+                            }
+                            else
+                            {
+                                var PCID = Int64.Parse(TextBoxPCID.Text);
+                                var formDashboard = new UserDashboardForm(userUsername, userPassword, PCID, this);
+                                formDashboard.Show(this);
+                            }
                         }
-                        Hide();
+                        break;
 
+                    case "Staff":
+                        {
+                            if (user.Role != User.Roles.Staff)
+                            {
+                                MessageBox.Show($"{user.Role.ToString()} can not login as staff!");
+                            }
+                            else
+                            {
+                                var formDashboard = new StaffDashboardForm(userUsername, userPassword);
+                                formDashboard.Show();
+                            }
+                        }
+                        break;
+                    case "Admin":
+                        {
+                            if (user.Role != User.Roles.Admin)
+                            {
+                                MessageBox.Show($"{user.Role.ToString()} can not login as admin!");
+                                return;
+                            }
+                            var formDashboard = new AdminDashboardForm(userUsername, userPassword);
+                            formDashboard.Show();
+                        }
                         break;
                     default:
-                        MessageBox.Show("Error");
+                        MessageBox.Show("No such roles exists!");
                         break;
                 }
+                Hide();
             }
             catch (FlurlHttpException ex)
             {
-                MessageBox.Show(ex.Message);
+                if (ex.Call.Response.StatusCode == 403)
+                {
+                    MessageBox.Show("Wrong username or password");
+                }
+                else
+                {
+                    var errorResp = await ex.Call.Response.GetStringAsync();
+                    MessageBox.Show($"{ex.Message}\n{errorResp}");
+                }
             }
             catch (Exception ex)
             {

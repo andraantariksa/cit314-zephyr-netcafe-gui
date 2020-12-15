@@ -57,7 +57,8 @@ namespace ZephyrNetCafeGUI
             }
             catch (FlurlHttpException ex)
             {
-                MessageBox.Show(ex.Message);
+                var errorResp = await ex.Call.Response.GetStringAsync();
+                MessageBox.Show($"{ex.Message}\n{errorResp}");
             }
 
             foreach (Control control in Controls)

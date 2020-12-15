@@ -1,7 +1,7 @@
 ﻿
 namespace ZephyrNetCafeGUI
 {
-    partial class DashboardForm
+    partial class UserDashboardForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -51,13 +51,18 @@ namespace ZephyrNetCafeGUI
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TabPageShop = new System.Windows.Forms.TabPage();
+            this.DataGridViewShop = new System.Windows.Forms.DataGridView();
             this.TabPageTransaction = new System.Windows.Forms.TabPage();
             this.TabPageHelp = new System.Windows.Forms.TabPage();
             this.LabelDuration = new System.Windows.Forms.Label();
             this.LabelDurationInfo = new System.Windows.Forms.Label();
             this.TimerControlDuration = new System.Windows.Forms.Timer(this.components);
+            this.DataGridViewShopName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewShopPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabControlCollection.SuspendLayout();
             this.TabPageDashboard.SuspendLayout();
+            this.TabPageShop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewShop)).BeginInit();
             this.SuspendLayout();
             // 
             // TabControlCollection
@@ -262,6 +267,7 @@ namespace ZephyrNetCafeGUI
             // 
             // TabPageShop
             // 
+            this.TabPageShop.Controls.Add(this.DataGridViewShop);
             this.TabPageShop.Location = new System.Drawing.Point(4, 24);
             this.TabPageShop.Name = "TabPageShop";
             this.TabPageShop.Padding = new System.Windows.Forms.Padding(3);
@@ -269,6 +275,21 @@ namespace ZephyrNetCafeGUI
             this.TabPageShop.TabIndex = 1;
             this.TabPageShop.Text = "Shop";
             this.TabPageShop.UseVisualStyleBackColor = true;
+            // 
+            // DataGridViewShop
+            // 
+            this.DataGridViewShop.AllowUserToAddRows = false;
+            this.DataGridViewShop.AllowUserToDeleteRows = false;
+            this.DataGridViewShop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewShop.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGridViewShopName,
+            this.DataGridViewShopPrice});
+            this.DataGridViewShop.Location = new System.Drawing.Point(3, 3);
+            this.DataGridViewShop.Name = "DataGridViewShop";
+            this.DataGridViewShop.ReadOnly = true;
+            this.DataGridViewShop.RowTemplate.Height = 25;
+            this.DataGridViewShop.Size = new System.Drawing.Size(255, 431);
+            this.DataGridViewShop.TabIndex = 0;
             // 
             // TabPageTransaction
             // 
@@ -291,11 +312,11 @@ namespace ZephyrNetCafeGUI
             this.LabelDuration.AutoSize = true;
             this.LabelDuration.Font = new System.Drawing.Font("Yu Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LabelDuration.ForeColor = System.Drawing.Color.OrangeRed;
-            this.LabelDuration.Location = new System.Drawing.Point(720, 98);
+            this.LabelDuration.Location = new System.Drawing.Point(763, 98);
             this.LabelDuration.Name = "LabelDuration";
-            this.LabelDuration.Size = new System.Drawing.Size(77, 31);
+            this.LabelDuration.Size = new System.Drawing.Size(42, 31);
             this.LabelDuration.TabIndex = 17;
-            this.LabelDuration.Text = "00:00";
+            this.LabelDuration.Text = "00";
             // 
             // LabelDurationInfo
             // 
@@ -304,11 +325,28 @@ namespace ZephyrNetCafeGUI
             this.LabelDurationInfo.ForeColor = System.Drawing.Color.Red;
             this.LabelDurationInfo.Location = new System.Drawing.Point(638, 78);
             this.LabelDurationInfo.Name = "LabelDurationInfo";
-            this.LabelDurationInfo.Size = new System.Drawing.Size(141, 16);
+            this.LabelDurationInfo.Size = new System.Drawing.Size(146, 16);
             this.LabelDurationInfo.TabIndex = 18;
-            this.LabelDurationInfo.Text = "Duration remaining:";
+            this.LabelDurationInfo.Text = "Minute(s) remaining:";
             // 
-            // DashboardForm
+            // TimerControlDuration
+            // 
+            this.TimerControlDuration.Interval = 60000;
+            this.TimerControlDuration.Tick += new System.EventHandler(this.TimerControlDuration_Tick);
+            // 
+            // DataGridViewShopName
+            // 
+            this.DataGridViewShopName.HeaderText = "Name";
+            this.DataGridViewShopName.Name = "DataGridViewShopName";
+            this.DataGridViewShopName.ReadOnly = true;
+            // 
+            // DataGridViewShopPrice
+            // 
+            this.DataGridViewShopPrice.HeaderText = "Price";
+            this.DataGridViewShopPrice.Name = "DataGridViewShopPrice";
+            this.DataGridViewShopPrice.ReadOnly = true;
+            // 
+            // UserDashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -317,13 +355,15 @@ namespace ZephyrNetCafeGUI
             this.Controls.Add(this.LabelDurationInfo);
             this.Controls.Add(this.LabelDuration);
             this.Controls.Add(this.TabControlCollection);
-            this.Name = "DashboardForm";
+            this.Name = "UserDashboardForm";
             this.Text = "Dashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DashboardForm_FormClosed);
             this.Load += new System.EventHandler(this.DashboardForm_Load);
             this.TabControlCollection.ResumeLayout(false);
             this.TabPageDashboard.ResumeLayout(false);
             this.TabPageDashboard.PerformLayout();
+            this.TabPageShop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewShop)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,6 +397,9 @@ namespace ZephyrNetCafeGUI
         private System.Windows.Forms.TabPage TabPageTransaction;
         private System.Windows.Forms.TabPage TabPageHelp;
         private System.Windows.Forms.Timer TimerControlDuration;
+        private System.Windows.Forms.DataGridView DataGridViewShop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewShopName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewShopPrice;
     }
 }
 
