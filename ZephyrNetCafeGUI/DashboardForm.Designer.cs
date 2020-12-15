@@ -71,7 +71,6 @@ namespace ZephyrNetCafeGUI
             this.TabControlCollection.SelectedIndex = 0;
             this.TabControlCollection.Size = new System.Drawing.Size(619, 630);
             this.TabControlCollection.TabIndex = 19;
-            this.TabControlCollection.SelectedIndexChanged += new System.EventHandler(this.TabControlCollection_SelectedIndexChanged);
             // 
             // TabPageDashboard
             // 

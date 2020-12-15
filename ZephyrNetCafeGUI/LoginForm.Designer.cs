@@ -37,7 +37,7 @@ namespace ZephyrNetCafeGUI
             this.panel1 = new System.Windows.Forms.Panel();
             this.ButtonSignup = new System.Windows.Forms.Button();
             this.TextBoxPCID = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.LabelPCID = new System.Windows.Forms.Label();
             this.ComboBoxAccess = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -110,14 +110,14 @@ namespace ZephyrNetCafeGUI
             this.TextBoxPCID.Size = new System.Drawing.Size(312, 23);
             this.TextBoxPCID.TabIndex = 6;
             // 
-            // label3
+            // LabelPCID
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(612, 383);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 15);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "PC ID";
+            this.LabelPCID.AutoSize = true;
+            this.LabelPCID.Location = new System.Drawing.Point(612, 383);
+            this.LabelPCID.Name = "LabelPCID";
+            this.LabelPCID.Size = new System.Drawing.Size(36, 15);
+            this.LabelPCID.TabIndex = 7;
+            this.LabelPCID.Text = "PC ID";
             // 
             // ComboBoxAccess
             // 
@@ -130,6 +130,8 @@ namespace ZephyrNetCafeGUI
             this.ComboBoxAccess.Name = "ComboBoxAccess";
             this.ComboBoxAccess.Size = new System.Drawing.Size(121, 23);
             this.ComboBoxAccess.TabIndex = 8;
+            this.ComboBoxAccess.Text = "User";
+            this.ComboBoxAccess.SelectedIndexChanged += new System.EventHandler(this.ComboBoxAccess_SelectedIndexChanged);
             // 
             // LoginForm
             // 
@@ -138,7 +140,7 @@ namespace ZephyrNetCafeGUI
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1164, 631);
             this.Controls.Add(this.ComboBoxAccess);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.LabelPCID);
             this.Controls.Add(this.TextBoxPCID);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
@@ -165,7 +167,7 @@ namespace ZephyrNetCafeGUI
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button ButtonSignup;
         private System.Windows.Forms.TextBox TextBoxPCID;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LabelPCID;
         private System.Windows.Forms.ComboBox ComboBoxAccess;
     }
 }

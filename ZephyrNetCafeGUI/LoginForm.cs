@@ -136,5 +136,23 @@ namespace ZephyrNetCafeGUI
         {
 
         }
+
+        private void ComboBoxAccess_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ComboBoxAccess.SelectedIndex == 0)
+            {
+                TextBoxPCID.Show();
+                LabelPCID.Show();
+                TextBoxPCID.Enabled = true;
+                LabelPCID.Enabled = true;
+            }
+            else
+            {
+                TextBoxPCID.Hide();
+                LabelPCID.Hide();
+                TextBoxPCID.Enabled = false;
+                LabelPCID.Enabled = false;
+            }
+        }
     }
 }
