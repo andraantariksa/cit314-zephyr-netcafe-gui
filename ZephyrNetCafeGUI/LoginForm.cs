@@ -27,9 +27,9 @@ namespace ZephyrNetCafeGUI
 
             var userUsername = TextBoxUsername.Text;
             var userPassword = TextBoxPassword.Text;
-
             try
             {
+                var PCID = Int64.Parse(TextBoxPCID.Text);
                 var result = await $"{Constant.URL}/api/user/auth"
                     .AllowAnyHttpStatus()
                     .PostJsonAsync(new
@@ -43,7 +43,7 @@ namespace ZephyrNetCafeGUI
                         MessageBox.Show("Username or password does not match");
                         break;
                     case 200:
-                        var formDashboard = new DashboardForm(userUsername, userPassword);
+                        var formDashboard = new DashboardForm(userUsername, userPassword, PCID);
                         formDashboard.Show();
                         Hide();
 
@@ -54,6 +54,10 @@ namespace ZephyrNetCafeGUI
                 }
             }
             catch (FlurlHttpException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

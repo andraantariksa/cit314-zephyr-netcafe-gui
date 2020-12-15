@@ -36,12 +36,14 @@ namespace ZephyrNetCafeGUI
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ButtonSignup = new System.Windows.Forms.Button();
+            this.TextBoxPCID = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ButtonLogin
             // 
-            this.ButtonLogin.Location = new System.Drawing.Point(910, 379);
+            this.ButtonLogin.Location = new System.Drawing.Point(910, 424);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(90, 40);
             this.ButtonLogin.TabIndex = 0;
@@ -100,12 +102,30 @@ namespace ZephyrNetCafeGUI
             this.ButtonSignup.UseVisualStyleBackColor = true;
             this.ButtonSignup.Click += new System.EventHandler(this.ButtonSignup_Click);
             // 
+            // TextBoxPCID
+            // 
+            this.TextBoxPCID.Location = new System.Drawing.Point(688, 380);
+            this.TextBoxPCID.Name = "TextBoxPCID";
+            this.TextBoxPCID.Size = new System.Drawing.Size(312, 23);
+            this.TextBoxPCID.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(612, 383);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 15);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "PC ID";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1164, 631);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.TextBoxPCID);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TextBoxPassword);
@@ -124,12 +144,13 @@ namespace ZephyrNetCafeGUI
         #endregion
 
         private System.Windows.Forms.Button ButtonLogin;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TextBoxPassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TextBoxUsername;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button ButtonSignup;
+        private System.Windows.Forms.TextBox TextBoxPCID;
+        private System.Windows.Forms.Label label3;
     }
 }

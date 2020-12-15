@@ -71,7 +71,6 @@ namespace ZephyrNetCafeGUI
             this.TabControlCollection.SelectedIndex = 0;
             this.TabControlCollection.Size = new System.Drawing.Size(619, 630);
             this.TabControlCollection.TabIndex = 19;
-            this.TabControlCollection.SelectedIndexChanged += new System.EventHandler(this.TabControlCollection_SelectedIndexChanged);
             // 
             // TabPageDashboard
             // 
@@ -301,11 +300,11 @@ namespace ZephyrNetCafeGUI
             // LabelDurationInfo
             // 
             this.LabelDurationInfo.AutoSize = true;
-            this.LabelDurationInfo.Font = new System.Drawing.Font("Unispace", 9.749999F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.LabelDurationInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.LabelDurationInfo.ForeColor = System.Drawing.Color.Red;
             this.LabelDurationInfo.Location = new System.Drawing.Point(638, 78);
             this.LabelDurationInfo.Name = "LabelDurationInfo";
-            this.LabelDurationInfo.Size = new System.Drawing.Size(159, 15);
+            this.LabelDurationInfo.Size = new System.Drawing.Size(141, 16);
             this.LabelDurationInfo.TabIndex = 18;
             this.LabelDurationInfo.Text = "Duration remaining:";
             // 
@@ -320,6 +319,7 @@ namespace ZephyrNetCafeGUI
             this.Controls.Add(this.TabControlCollection);
             this.Name = "DashboardForm";
             this.Text = "Dashboard";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DashboardForm_FormClosed);
             this.Load += new System.EventHandler(this.DashboardForm_Load);
             this.TabControlCollection.ResumeLayout(false);
             this.TabPageDashboard.ResumeLayout(false);
