@@ -292,22 +292,27 @@ namespace ZephyrNetCafeGUI
             this.LabelDuration.AutoSize = true;
             this.LabelDuration.Font = new System.Drawing.Font("Yu Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LabelDuration.ForeColor = System.Drawing.Color.OrangeRed;
-            this.LabelDuration.Location = new System.Drawing.Point(720, 98);
+            this.LabelDuration.Location = new System.Drawing.Point(763, 98);
             this.LabelDuration.Name = "LabelDuration";
-            this.LabelDuration.Size = new System.Drawing.Size(77, 31);
+            this.LabelDuration.Size = new System.Drawing.Size(42, 31);
             this.LabelDuration.TabIndex = 17;
-            this.LabelDuration.Text = "00:00";
+            this.LabelDuration.Text = "00";
             // 
             // LabelDurationInfo
             // 
             this.LabelDurationInfo.AutoSize = true;
-            this.LabelDurationInfo.Font = new System.Drawing.Font("Unispace", 9.749999F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.LabelDurationInfo.Font = new System.Drawing.Font("Unispace", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.LabelDurationInfo.ForeColor = System.Drawing.Color.Red;
             this.LabelDurationInfo.Location = new System.Drawing.Point(638, 78);
             this.LabelDurationInfo.Name = "LabelDurationInfo";
-            this.LabelDurationInfo.Size = new System.Drawing.Size(159, 15);
+            this.LabelDurationInfo.Size = new System.Drawing.Size(167, 15);
             this.LabelDurationInfo.TabIndex = 18;
-            this.LabelDurationInfo.Text = "Duration remaining:";
+            this.LabelDurationInfo.Text = "Minute(s) remaining:";
+            // 
+            // TimerControlDuration
+            // 
+            this.TimerControlDuration.Interval = 60000;
+            this.TimerControlDuration.Tick += new System.EventHandler(this.TimerControlDuration_Tick);
             // 
             // DashboardForm
             // 
