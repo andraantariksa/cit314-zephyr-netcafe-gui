@@ -32,6 +32,14 @@ namespace ZephyrNetCafeGUI
             public string Spec;
             public byte IsDeleted;
         }
+        public class ShopItemListField
+        {
+            public long ID;
+            public string Name;
+            public int Price;
+            public int Quantity;
+            public byte IsDeleted;
+        }
         public AdminDashboardForm(string authUsername, string authPassword)
         {
             AuthUsername = authUsername;
@@ -89,7 +97,7 @@ namespace ZephyrNetCafeGUI
         {
             try
             {
-                var computerlist = await $"{Constant.URL}/api/"
+                var computerlist = await $"{Constant.URL}/api/computer"
                     .GetJsonAsync<List<ComputerListField>>();
 
                 DataGridViewComputerItemList.Rows.Clear();
@@ -112,17 +120,18 @@ namespace ZephyrNetCafeGUI
         {
             try
             {
-                var computerlist = await $"{Constant.URL}/api/"
-                    .GetJsonAsync<List<ComputerListField>>();
+                var shopitemlist = await $"{Constant.URL}/api/shop"
+                    .GetJsonAsync<List<ShopItemListField>>();
 
                 DataGridViewComputerItemList.Rows.Clear();
-                foreach (ComputerListField comp in computerlist)
+                foreach (ShopItemListField shop in shopitemlist)
                 {
                     DataGridViewComputerItemList.Rows.Add(
-                        comp.ID,
-                        comp.Name,
-                        comp.Spec,
-                        comp.IsDeleted
+                        shop.ID,
+                        shop.Name,
+                        shop.Price,
+                        shop.Quantity,
+                        shop.IsDeleted
                     );
                 }
             }
@@ -137,6 +146,7 @@ namespace ZephyrNetCafeGUI
             {
                 UpdateComputerActive();
                 UpdateComputerItemList();
+                UpdateShopItemList();
             }
             catch (Exception exc)
             {
@@ -206,6 +216,14 @@ namespace ZephyrNetCafeGUI
             {
                 control.Enabled = true;
             }
+        }
+
+        private void ButtonAddShopItem_Click(object sender, EventArgs e)
+        {
+            AddShopItemDialog AddDialog = new AddShopItemDialog(AuthUsername, AuthPassword);
+            AddDialog.AdminForm = this;
+            Enabled = false;
+            AddDialog.Show();
         }
     }
 }
