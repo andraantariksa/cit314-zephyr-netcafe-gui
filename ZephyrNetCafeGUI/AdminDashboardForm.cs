@@ -108,6 +108,29 @@ namespace ZephyrNetCafeGUI
                 MessageBox.Show(exc.Message);
             }
         }
+        public async void UpdateShopItemList()
+        {
+            try
+            {
+                var computerlist = await $"{Constant.URL}/api/"
+                    .GetJsonAsync<List<ComputerListField>>();
+
+                DataGridViewComputerItemList.Rows.Clear();
+                foreach (ComputerListField comp in computerlist)
+                {
+                    DataGridViewComputerItemList.Rows.Add(
+                        comp.ID,
+                        comp.Name,
+                        comp.Spec,
+                        comp.IsDeleted
+                    );
+                }
+            }
+            catch (FlurlHttpException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
         private void TimerControlComputerActive_Tick(object sender, EventArgs e)
         {
             try
@@ -149,15 +172,40 @@ namespace ZephyrNetCafeGUI
             }
         }
 
-        private void ButtonDeleteComputer_Click(object sender, EventArgs e)
+        private async void ButtonDeleteComputer_Click(object sender, EventArgs e)
         {
-            if (DataGridViewComputerItemList.SelectedRows.Count > 0)
+            foreach (Control control in TabPageComputer.Controls)
             {
+                control.Enabled = false;
+            }
+            try
+            {
+                if (DataGridViewComputerItemList.SelectedRows.Count > 0)
+                {
 
-                //long s_ComputerID = DataGridViewComputerItemList.SelectedRows.;
-
+                    long s_ComputerID = (long)DataGridViewComputerItemList.SelectedRows[0].Cells[0].Value;
+                    var response = await $"{Constant.URL}/api/computer"
+                        .SendJsonAsync(System.Net.Http.HttpMethod.Delete, new
+                        {
+                            ComputerID = s_ComputerID,
+                            AuthUsername = this.AuthUsername,
+                            AuthPassword = this.AuthPassword
+                        });
+                }
+            }
+            catch (FlurlHttpException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
+            foreach (Control control in TabPageComputer.Controls)
+            {
+                control.Enabled = true;
+            }
         }
     }
 }
