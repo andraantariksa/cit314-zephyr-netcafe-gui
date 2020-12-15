@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Flurl;
-using Flurl.Http;-
+using Flurl.Http;
 
 namespace ZephyrNetCafeGUI
 {
@@ -73,6 +73,11 @@ namespace ZephyrNetCafeGUI
         {
             var formSignup = new SignUpForm();
             formSignup.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
