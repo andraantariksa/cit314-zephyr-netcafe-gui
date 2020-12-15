@@ -62,6 +62,7 @@ namespace ZephyrNetCafeGUI
             public string AuthUsername { get; set; }
             public string AuthPassword { get; set; }
         }
+
         private async void DashboardForm_Load(object sender, EventArgs e)
         {
             try
@@ -90,7 +91,7 @@ namespace ZephyrNetCafeGUI
             catch (FlurlHttpException ex)
             {
                 MessageBox.Show(ex.Message);
-                Logout();
+                ExitDashboard();
             }
         }
 
@@ -98,6 +99,15 @@ namespace ZephyrNetCafeGUI
         private void TabControlCollection_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void ExitDashboard()
+        {
+            foreach (Control control in Controls)
+            {
+                control.Enabled = false;
+            }
+            Logout();
         }
 
         private async void TimerControlDuration_Tick(object sender, EventArgs e)
@@ -112,12 +122,25 @@ namespace ZephyrNetCafeGUI
             }
             catch (FlurlHttpException ex)
             {
-
                 MessageBox.Show(ex.Message);
-                Logout();
             }
             if (m_Duration != 0)
             {
+                try
+                {
+                    var dur = await $"{Constant.URL}/api/durationreduce"
+                        .PostJsonAsync(new
+                        {
+                            ReducedDuration = 1,
+                            AuthUsername = m_Username,
+                            AuthPassword = m_Password
+                        });
+                }
+                catch (FlurlHttpException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    ExitDashboard();
+                }
                 m_Duration -= 1;
                 LabelDuration.Text = $":{m_Duration}";
             }
@@ -125,7 +148,7 @@ namespace ZephyrNetCafeGUI
             {
                 TimerControlDuration.Stop();
                 MessageBox.Show("Your time has exceeded!");
-                Logout();
+                ExitDashboard();
             }
         }
     }
