@@ -11,4 +11,10 @@
     <PackageReference Include="Flurl.Http" Version="3.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="StaffLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

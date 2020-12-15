@@ -1,7 +1,7 @@
 ﻿
 namespace ZephyrNetCafeGUI
 {
-    partial class manager_Dashboard
+    partial class AdminDashboardForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,10 +31,12 @@ namespace ZephyrNetCafeGUI
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.vScrollBar4 = new System.Windows.Forms.VScrollBar();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LabelWelcomeAdmin = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.vScrollBar3 = new System.Windows.Forms.VScrollBar();
             this.button5 = new System.Windows.Forms.Button();
@@ -52,8 +54,6 @@ namespace ZephyrNetCafeGUI
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.label14 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -84,7 +84,7 @@ namespace ZephyrNetCafeGUI
             this.tabPage1.Controls.Add(this.vScrollBar4);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.LabelWelcomeAdmin);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -92,6 +92,24 @@ namespace ZephyrNetCafeGUI
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Computer Management";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(872, 500);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(113, 37);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Add Computer";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(991, 500);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 37);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Delete Computer";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // vScrollBar4
             // 
@@ -118,14 +136,14 @@ namespace ZephyrNetCafeGUI
             this.label2.TabIndex = 0;
             this.label2.Text = "Active Computer";
             // 
-            // label1
+            // LabelWelcomeAdmin
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome, Manager x!";
+            this.LabelWelcomeAdmin.AutoSize = true;
+            this.LabelWelcomeAdmin.Location = new System.Drawing.Point(30, 23);
+            this.LabelWelcomeAdmin.Name = "LabelWelcomeAdmin";
+            this.LabelWelcomeAdmin.Size = new System.Drawing.Size(122, 15);
+            this.LabelWelcomeAdmin.TabIndex = 0;
+            this.LabelWelcomeAdmin.Text = "Welcome, Manager x!";
             // 
             // tabPage3
             // 
@@ -291,32 +309,15 @@ namespace ZephyrNetCafeGUI
             this.label14.TabIndex = 1;
             this.label14.Text = "Transaction Report Management";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(991, 500);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 37);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Delete Computer";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(872, 500);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 37);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Add Computer";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // manager_Dashboard
+            // AdminDashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1164, 631);
             this.Controls.Add(this.tabControl1);
-            this.Name = "manager_Dashboard";
+            this.Name = "AdminDashboardForm";
             this.Text = "Manager Dashboard";
+            this.Load += new System.EventHandler(this.AdminDashboardForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -340,7 +341,7 @@ namespace ZephyrNetCafeGUI
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LabelWelcomeAdmin;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
