@@ -1,27 +1,28 @@
 ﻿using System;
-using Flurl.Http;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Text;
+using Flurl.Http;
 using System.Windows.Forms;
 
 namespace ZephyrNetCafeGUI
 {
-    public partial class EditShopItemDialog : UserControl
+    public partial class EditUserDialog : UserControl
     {
         public AdminDashboardForm AdminForm { set; get; }
         private string AuthUsername { set; get; }
         private string AuthPassword { set; get; }
-        private long ProductID { set; get; }
-        public EditShopItemDialog(string authname, string authpass, long productid, string prodname, int price)
+        private long UserID { set; get; }
+        public EditUserDialog(string authname, string authpass, long userid, string name, string email, string role)
         {
             AuthPassword = authname;
             AuthPassword = authpass;
-            ProductID = productid;
-            TextBoxName.Text = $"{prodname}";
-            NumericPrice.Value = (int)price;
+            UserID = userid;
+            TextBoxName.Text = $"{name}";
+            TextBoxEmail.Text = $"{email}";
+            ComboBoxRole.Text = $"{role}";
             InitializeComponent();
         }
 
@@ -30,12 +31,13 @@ namespace ZephyrNetCafeGUI
             try
             {
                 ButtonSave.Enabled = false;
-                var response = await $"{Constant.URL}/api/shop"
-                    .PutJsonAsync(new 
+                var response = await $"{Constant.URL}/api/user"
+                    .PutJsonAsync(new
                     {
-                        ProductID = this.ProductID,
+                        UserID = this.UserID,
                         Name = TextBoxName.Text,
-                        Price = (int)NumericPrice.Value,
+                        Email = TextBoxEmail.Text,
+                        Role = (byte)ComboBoxRole.SelectedIndex,
                         AuthUsername = this.AuthUsername,
                         AuthPassword = this.AuthPassword
                     });
@@ -51,12 +53,17 @@ namespace ZephyrNetCafeGUI
             }
         }
 
-        private void TextBoxName_TextChanged(object sender, EventArgs e)
+        private void ComboBoxRole_SelectedIndexChanged(object sender, EventArgs e)
         {
             ButtonSave.Enabled = true;
         }
 
-        private void NumericPrice_ValueChanged(object sender, EventArgs e)
+        private void TextBoxEmail_TextChanged(object sender, EventArgs e)
+        {
+            ButtonSave.Enabled = true;
+        }
+
+        private void TextBoxName_TextChanged(object sender, EventArgs e)
         {
             ButtonSave.Enabled = true;
         }
@@ -66,7 +73,7 @@ namespace ZephyrNetCafeGUI
             try
             {
                 AdminForm.Enabled = true;
-                AdminForm.UpdateShopItemList();
+                AdminForm.UpdateUserList();
                 this.Dispose();
             }
             catch (Exception exc)

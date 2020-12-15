@@ -331,5 +331,23 @@ namespace ZephyrNetCafeGUI
         {
             Logout();
         }
+        private void ButtonEditUser_Click(object sender, EventArgs e)
+        {
+            if (DataGridViewUserList.SelectedRows.Count > 0)
+            {
+                long s_UserID = (long)DataGridViewUserList.SelectedRows[0].Cells[0].Value;
+                string name = DataGridViewUserList.SelectedRows[0].Cells[2].Value.ToString();
+                string email = DataGridViewUserList.SelectedRows[0].Cells[3].Value.ToString();
+                string role = DataGridViewUserList.SelectedRows[0].Cells[5].Value.ToString();
+                EditUserDialog EditDialog = new EditUserDialog(AuthUsername, AuthPassword, s_UserID, name, email, role);
+                EditDialog.AdminForm = this;
+                Enabled = false;
+                EditDialog.Show();
+            }
+            else
+            {
+                MessageBox.Show("Not selected!");
+            }
+        }
     }
 }
