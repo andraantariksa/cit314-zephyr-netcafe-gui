@@ -225,5 +225,16 @@ namespace ZephyrNetCafeGUI
             Enabled = false;
             AddDialog.Show();
         }
+
+        private void ButtonEditShopItem_Click(object sender, EventArgs e)
+        {
+            long s_ProductID = (long)DataGridViewShopItem.SelectedRows[0].Cells[0].Value;
+            string name = DataGridViewShopItem.SelectedRows[0].Cells[1].Value.ToString();
+            int price = (int)DataGridViewShopItem.SelectedRows[0].Cells[2].Value;
+            EditShopItemDialog EditDialog = new EditShopItemDialog(AuthUsername, AuthPassword, s_ProductID, name, price);
+            EditDialog.AdminForm = this;
+            Enabled = false;
+            EditDialog.Show();
+        }
     }
 }

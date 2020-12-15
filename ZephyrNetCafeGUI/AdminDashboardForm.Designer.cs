@@ -344,6 +344,7 @@ namespace ZephyrNetCafeGUI
             this.ButtonEditShopItem.TabIndex = 2;
             this.ButtonEditShopItem.Text = "Edit Item";
             this.ButtonEditShopItem.UseVisualStyleBackColor = true;
+            this.ButtonEditShopItem.Click += new System.EventHandler(this.ButtonEditShopItem_Click);
             // 
             // ButtonDeleteShopItem
             // 
