@@ -40,6 +40,17 @@ namespace ZephyrNetCafeGUI
             public int Quantity;
             public byte IsDeleted;
         }
+        public class UserListField
+        {
+            public long ID;
+            public string Username;
+            public string Name;
+            public string Email;
+            public string Password;
+            public int Duration;
+            public byte Role;
+        }
+        string[] Roles = {"Admin", "Staff", "User"};
         public AdminDashboardForm(string authUsername, string authPassword)
         {
             AuthUsername = authUsername;
@@ -123,7 +134,7 @@ namespace ZephyrNetCafeGUI
                 var shopitemlist = await $"{Constant.URL}/api/shop"
                     .GetJsonAsync<List<ShopItemListField>>();
 
-                DataGridViewComputerItemList.Rows.Clear();
+                DataGridViewShopItem.Rows.Clear();
                 foreach (ShopItemListField shop in shopitemlist)
                 {
                     DataGridViewComputerItemList.Rows.Add(
@@ -140,6 +151,31 @@ namespace ZephyrNetCafeGUI
                 MessageBox.Show(exc.Message);
             }
         }
+        public async void UpdateUserList()
+        {
+            try
+            {
+                var userlist = await $"{Constant.URL}/api/user"
+                    .GetJsonAsync<List<UserListField>>();
+
+                DataGridViewUserList.Rows.Clear();
+                foreach (UserListField user in userlist)
+                {
+                    DataGridViewUserList.Rows.Add(
+                        user.ID,
+                        user.Username,
+                        user.Name,
+                        user.Email,
+                        user.Duration,
+                        Roles[user.Role]
+                    );
+                }
+            }
+            catch (FlurlHttpException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
         private void TimerControlComputerActive_Tick(object sender, EventArgs e)
         {
             try
@@ -147,6 +183,7 @@ namespace ZephyrNetCafeGUI
                 UpdateComputerActive();
                 UpdateComputerItemList();
                 UpdateShopItemList();
+                UpdateUserList();
             }
             catch (Exception exc)
             {
@@ -279,5 +316,6 @@ namespace ZephyrNetCafeGUI
                 control.Enabled = true;
             }
         }
+
     }
 }
