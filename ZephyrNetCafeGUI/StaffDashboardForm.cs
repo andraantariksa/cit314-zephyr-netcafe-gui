@@ -154,6 +154,7 @@ namespace ZephyrNetCafeGUI
             public long ItemID { get; set; }
             public int Quantity { get; set; }
             public int Price { get; set; }
+            public string Name { get; set; }
         };
 
         public class TransactionAddField
@@ -173,6 +174,7 @@ namespace ZephyrNetCafeGUI
                 item.ItemID = (long)row.Cells[0].Value;
                 item.Price = (int)row.Cells[3].Value;
                 item.Quantity = (int)row.Cells[2].Value;
+                item.Name = (string)row.Cells[1].Value;
 
                 itemPurchase.Add(item);
             }

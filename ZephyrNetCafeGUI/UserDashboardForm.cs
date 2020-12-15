@@ -20,6 +20,7 @@ namespace ZephyrNetCafeGUI
         private long m_UserID { get; set; }
         public long m_UsageID { get; private set; }
         public long m_PCID { get; private set; }
+        public List<Tuple<Transaction, List<TransactionItem>>> m_TransactionTuples { get; private set; }
         public Form m_LoginForm { get; private set; }
 
         public UserDashboardForm(string username, string password, long pcid, Form loginForm)
@@ -98,6 +99,43 @@ namespace ZephyrNetCafeGUI
                 LabelWelcomeUser.Text = $"Welcome, user {m_Username}";
                 LabelDuration.Text = $":{m_Duration}";
                 TimerControlDuration.Start();
+
+                LoadUserTransaction();
+            }
+            catch (FlurlHttpException ex)
+            {
+                MessageBox.Show(ex.Message);
+                Logout();
+            }
+        }
+
+        public class Transaction
+        {
+            public long ID { set; get; }
+            public long UserID { set; get; }
+            public DateTime CreatedAt { set; get; }
+        }
+
+        public class TransactionItem
+        {
+            public long ID { get; set; }
+            public long TransactionID { get; set; }
+            public string Name { get; set; }
+            public long ItemID { get; set; }
+            public int Price { get; set; }
+            public int Quantity { get; set; }
+        }
+
+        private async void LoadUserTransaction()
+        {
+            try
+            {
+                m_TransactionTuples = await $"{Constant.URL}/api/transaction/{m_Username}"
+                    .GetJsonAsync<List<Tuple<Transaction, List<TransactionItem>>>>();
+                foreach (Tuple<Transaction, List<TransactionItem>> transactionTuple in m_TransactionTuples)
+                {
+                    DataGridViewTransactions.Rows.Add(transactionTuple.Item1.ID, transactionTuple.Item1.CreatedAt);
+                }
             }
             catch (FlurlHttpException ex)
             {
@@ -146,6 +184,20 @@ namespace ZephyrNetCafeGUI
             {
                 TimerControlDuration.Stop();
                 Logout();
+            }
+        }
+
+        private void DataGridViewTransactions_CellContentClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var selectedRow = DataGridViewTransactions.SelectedRows[0];
+            var selectedRowIdx = selectedRow.Index;
+
+            DataGridViewTransactionItems.Rows.Clear();
+
+            var transactionItems = m_TransactionTuples[selectedRowIdx].Item2;
+            foreach (TransactionItem transactionItem in transactionItems)
+            {
+                DataGridViewTransactionItems.Rows.Add(transactionItem.ID, transactionItem.Name, transactionItem.Price, transactionItem.Quantity, transactionItem.Price * transactionItem.Quantity);
             }
         }
     }
