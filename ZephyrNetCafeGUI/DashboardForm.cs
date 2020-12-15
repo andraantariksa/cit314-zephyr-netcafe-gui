@@ -32,5 +32,17 @@ namespace ZephyrNetCafeGUI
         {
 
         }
+
+        private void DashboardForm_Load(object sender, EventArgs e)
+        {
+            LabelWelcomeUser.Text = $"Welcome, user {Username}";
+            
+        }
+
+
+        private void TabControlCollection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
