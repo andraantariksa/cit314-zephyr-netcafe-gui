@@ -68,6 +68,7 @@ namespace ZephyrNetCafeGUI
                                 var PCID = Int64.Parse(TextBoxPCID.Text);
                                 var formDashboard = new UserDashboardForm(userUsername, userPassword, PCID, this);
                                 formDashboard.Show(this);
+                                Hide();
                             }
                         }
                         break;
@@ -76,12 +77,13 @@ namespace ZephyrNetCafeGUI
                         {
                             if (user.Role != User.Roles.Staff)
                             {
-                                MessageBox.Show($"{user.Role.ToString()} can not login as staff!");
+                                MessageBox.Show($"{user.Role} can not login as staff!");
                             }
                             else
                             {
-                                var formDashboard = new StaffDashboardForm(userUsername, userPassword);
+                                var formDashboard = new StaffDashboardForm(userUsername, userPassword, this);
                                 formDashboard.Show();
+                                Hide();
                             }
                         }
                         break;
@@ -89,18 +91,20 @@ namespace ZephyrNetCafeGUI
                         {
                             if (user.Role != User.Roles.Admin)
                             {
-                                MessageBox.Show($"{user.Role.ToString()} can not login as admin!");
-                                return;
+                                MessageBox.Show($"{user.Role} can not login as admin!");
                             }
-                            var formDashboard = new AdminDashboardForm(userUsername, userPassword);
-                            formDashboard.Show();
+                            else
+                            {
+                                var formDashboard = new AdminDashboardForm(userUsername, userPassword, this);
+                                formDashboard.Show();
+                                Hide();
+                            }
                         }
                         break;
                     default:
                         MessageBox.Show("No such roles exists!");
                         break;
                 }
-                Hide();
             }
             catch (FlurlHttpException ex)
             {

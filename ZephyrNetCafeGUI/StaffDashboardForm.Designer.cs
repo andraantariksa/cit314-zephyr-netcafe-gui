@@ -51,6 +51,7 @@ namespace ZephyrNetCafeGUI
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
             this.TextBoxTransactionUserUsername = new System.Windows.Forms.TextBox();
             this.ButtonTransactionCheckout = new System.Windows.Forms.Button();
             this.ButtonTransactionAddToCart = new System.Windows.Forms.Button();
@@ -66,7 +67,6 @@ namespace ZephyrNetCafeGUI
             this.DataGridViewCartItemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataGridViewCartItemTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label14 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -303,6 +303,15 @@ namespace ZephyrNetCafeGUI
             this.tabPage4.Text = "Transaction";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(30, 300);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 15);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Username";
+            // 
             // TextBoxTransactionUserUsername
             // 
             this.TextBoxTransactionUserUsername.Location = new System.Drawing.Point(30, 321);
@@ -426,15 +435,6 @@ namespace ZephyrNetCafeGUI
             this.label14.TabIndex = 1;
             this.label14.Text = "Add Transaction";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(30, 300);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 15);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "Username";
-            // 
             // StaffDashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -443,6 +443,7 @@ namespace ZephyrNetCafeGUI
             this.Controls.Add(this.tabControl1);
             this.Name = "StaffDashboardForm";
             this.Text = "Staff Dashboard";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StaffDashboardForm_FormClosed);
             this.Load += new System.EventHandler(this.StaffDashboardForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

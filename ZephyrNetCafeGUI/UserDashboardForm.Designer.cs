@@ -56,6 +56,11 @@ namespace ZephyrNetCafeGUI
             this.DataGridViewShopPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabPageTransaction = new System.Windows.Forms.TabPage();
             this.DataGridViewTransactionItems = new System.Windows.Forms.DataGridView();
+            this.DataGridViewTransactionItemsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTransactionItemsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTransactionItemsPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTransactionItemsQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTransactionItemsTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataGridViewTransactions = new System.Windows.Forms.DataGridView();
             this.DataGridViewTransactionsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataGridViewTransactionsCreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,11 +68,6 @@ namespace ZephyrNetCafeGUI
             this.LabelDuration = new System.Windows.Forms.Label();
             this.LabelDurationInfo = new System.Windows.Forms.Label();
             this.TimerControlDuration = new System.Windows.Forms.Timer(this.components);
-            this.DataGridViewTransactionItemsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataGridViewTransactionItemsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataGridViewTransactionItemsPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataGridViewTransactionItemsQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataGridViewTransactionItemsTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabControlCollection.SuspendLayout();
             this.TabPageDashboard.SuspendLayout();
             this.TabPageShop.SuspendLayout();
@@ -343,6 +343,36 @@ namespace ZephyrNetCafeGUI
             this.DataGridViewTransactionItems.Size = new System.Drawing.Size(335, 379);
             this.DataGridViewTransactionItems.TabIndex = 1;
             // 
+            // DataGridViewTransactionItemsID
+            // 
+            this.DataGridViewTransactionItemsID.HeaderText = "ID";
+            this.DataGridViewTransactionItemsID.Name = "DataGridViewTransactionItemsID";
+            this.DataGridViewTransactionItemsID.ReadOnly = true;
+            // 
+            // DataGridViewTransactionItemsName
+            // 
+            this.DataGridViewTransactionItemsName.HeaderText = "Name";
+            this.DataGridViewTransactionItemsName.Name = "DataGridViewTransactionItemsName";
+            this.DataGridViewTransactionItemsName.ReadOnly = true;
+            // 
+            // DataGridViewTransactionItemsPrice
+            // 
+            this.DataGridViewTransactionItemsPrice.HeaderText = "Price";
+            this.DataGridViewTransactionItemsPrice.Name = "DataGridViewTransactionItemsPrice";
+            this.DataGridViewTransactionItemsPrice.ReadOnly = true;
+            // 
+            // DataGridViewTransactionItemsQuantity
+            // 
+            this.DataGridViewTransactionItemsQuantity.HeaderText = "Quantity";
+            this.DataGridViewTransactionItemsQuantity.Name = "DataGridViewTransactionItemsQuantity";
+            this.DataGridViewTransactionItemsQuantity.ReadOnly = true;
+            // 
+            // DataGridViewTransactionItemsTotalPrice
+            // 
+            this.DataGridViewTransactionItemsTotalPrice.HeaderText = "Total Price";
+            this.DataGridViewTransactionItemsTotalPrice.Name = "DataGridViewTransactionItemsTotalPrice";
+            this.DataGridViewTransactionItemsTotalPrice.ReadOnly = true;
+            // 
             // DataGridViewTransactions
             // 
             this.DataGridViewTransactions.AllowUserToAddRows = false;
@@ -407,36 +437,6 @@ namespace ZephyrNetCafeGUI
             this.TimerControlDuration.Interval = 60000;
             this.TimerControlDuration.Tick += new System.EventHandler(this.TimerControlDuration_Tick);
             // 
-            // DataGridViewTransactionItemsID
-            // 
-            this.DataGridViewTransactionItemsID.HeaderText = "ID";
-            this.DataGridViewTransactionItemsID.Name = "DataGridViewTransactionItemsID";
-            this.DataGridViewTransactionItemsID.ReadOnly = true;
-            // 
-            // DataGridViewTransactionItemsName
-            // 
-            this.DataGridViewTransactionItemsName.HeaderText = "Name";
-            this.DataGridViewTransactionItemsName.Name = "DataGridViewTransactionItemsName";
-            this.DataGridViewTransactionItemsName.ReadOnly = true;
-            // 
-            // DataGridViewTransactionItemsPrice
-            // 
-            this.DataGridViewTransactionItemsPrice.HeaderText = "Price";
-            this.DataGridViewTransactionItemsPrice.Name = "DataGridViewTransactionItemsPrice";
-            this.DataGridViewTransactionItemsPrice.ReadOnly = true;
-            // 
-            // DataGridViewTransactionItemsQuantity
-            // 
-            this.DataGridViewTransactionItemsQuantity.HeaderText = "Quantity";
-            this.DataGridViewTransactionItemsQuantity.Name = "DataGridViewTransactionItemsQuantity";
-            this.DataGridViewTransactionItemsQuantity.ReadOnly = true;
-            // 
-            // DataGridViewTransactionItemsTotalPrice
-            // 
-            this.DataGridViewTransactionItemsTotalPrice.HeaderText = "Total Price";
-            this.DataGridViewTransactionItemsTotalPrice.Name = "DataGridViewTransactionItemsTotalPrice";
-            this.DataGridViewTransactionItemsTotalPrice.ReadOnly = true;
-            // 
             // UserDashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -448,6 +448,7 @@ namespace ZephyrNetCafeGUI
             this.Controls.Add(this.TabControlCollection);
             this.Name = "UserDashboardForm";
             this.Text = "Dashboard";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DashboardForm_FormClosed);
             this.Load += new System.EventHandler(this.DashboardForm_Load);
             this.TabControlCollection.ResumeLayout(false);
             this.TabPageDashboard.ResumeLayout(false);

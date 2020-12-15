@@ -13,6 +13,8 @@ namespace ZephyrNetCafeGUI
     {
         private string AuthUsername;
         private string AuthPassword;
+        private Form m_LoginForm;
+
         public class ComputerUsageAndComputerField
         {
             public long ComputerID;
@@ -51,10 +53,11 @@ namespace ZephyrNetCafeGUI
             public byte Role;
         }
         string[] Roles = {"Admin", "Staff", "User"};
-        public AdminDashboardForm(string authUsername, string authPassword)
+        public AdminDashboardForm(string authUsername, string authPassword, Form loginForm)
         {
             AuthUsername = authUsername;
             AuthPassword = authPassword;
+            m_LoginForm = loginForm;
 
             InitializeComponent();
 
@@ -318,5 +321,15 @@ namespace ZephyrNetCafeGUI
             }
         }
 
+        private void Logout()
+        {
+            m_LoginForm.Show();
+            Dispose();
+        }
+
+        private void AdminDashboardForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Logout();
+        }
     }
 }

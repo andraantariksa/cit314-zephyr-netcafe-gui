@@ -320,7 +320,7 @@ namespace ZephyrNetCafeGUI
             this.TabPageShopItem.Location = new System.Drawing.Point(4, 24);
             this.TabPageShopItem.Name = "TabPageShopItem";
             this.TabPageShopItem.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPageShopItem.Size = new System.Drawing.Size(1254, 737);
+            this.TabPageShopItem.Size = new System.Drawing.Size(1079, 572);
             this.TabPageShopItem.TabIndex = 2;
             this.TabPageShopItem.Text = "Shop Items Management";
             this.TabPageShopItem.UseVisualStyleBackColor = true;
@@ -429,7 +429,7 @@ namespace ZephyrNetCafeGUI
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1254, 737);
+            this.tabPage2.Size = new System.Drawing.Size(1079, 572);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "User Management";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -530,7 +530,7 @@ namespace ZephyrNetCafeGUI
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1254, 737);
+            this.tabPage4.Size = new System.Drawing.Size(1079, 572);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Transaction Report Management";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -627,6 +627,7 @@ namespace ZephyrNetCafeGUI
             this.Controls.Add(this.TabControlComputer);
             this.Name = "AdminDashboardForm";
             this.Text = "Manager Dashboard";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminDashboardForm_FormClosed);
             this.Load += new System.EventHandler(this.AdminDashboardForm_Load);
             this.EnabledChanged += new System.EventHandler(this.AdminDashboardForm_EnabledChanged);
             this.TabControlComputer.ResumeLayout(false);

@@ -13,11 +13,13 @@ namespace ZephyrNetCafeGUI
     {
         private string AuthUsername;
         private string AuthPassword;
+        private Form m_LoginForm;
 
-        public StaffDashboardForm(string authUsername, string authPassword)
+        public StaffDashboardForm(string authUsername, string authPassword, Form loginForm)
         {
             AuthUsername = authUsername;
             AuthPassword = authPassword;
+            m_LoginForm = loginForm;
 
             InitializeComponent();
 
@@ -198,6 +200,17 @@ namespace ZephyrNetCafeGUI
 
             DataGridViewCart.Rows.Clear();
             MessageBox.Show("Transaction success");
+        }
+
+        private void Logout()
+        {
+            m_LoginForm.Show();
+            Dispose();
+        }
+
+        private void StaffDashboardForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Logout();
         }
     }
 }
