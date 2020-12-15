@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Flurl;
-using Flurl.Http;
+using Flurl.Http;-
 
 namespace ZephyrNetCafeGUI
 {
@@ -28,27 +28,34 @@ namespace ZephyrNetCafeGUI
             var userUsername = TextBoxUsername.Text;
             var userPassword = TextBoxPassword.Text;
 
-            var result = await $"{Constant.URL}/api/user/auth"
-                .AllowAnyHttpStatus()
-                .PostJsonAsync(new
-                {
-                    Username = userUsername,
-                    Password = userPassword
-                });
-            switch (result.StatusCode)
+            try
             {
-                case 403:
-                    MessageBox.Show("Username or password does not match");
-                    break;
-                case 200:
-                    var dashboardForm = new DashboardForm(userUsername, userPassword);
-                    dashboardForm.Show();
-                    Hide();
+                var result = await $"{Constant.URL}/api/user/auth"
+                    .AllowAnyHttpStatus()
+                    .PostJsonAsync(new
+                    {
+                        Username = userUsername,
+                        Password = userPassword
+                    });
+                switch (result.StatusCode)
+                {
+                    case 403:
+                        MessageBox.Show("Username or password does not match");
+                        break;
+                    case 200:
+                        var formDashboard = new DashboardForm(userUsername, userPassword);
+                        formDashboard.Show();
+                        Hide();
 
-                    break;
-                default:
-                    MessageBox.Show("Error");
-                    break;
+                        break;
+                    default:
+                        MessageBox.Show("Error");
+                        break;
+                }
+            }
+            catch (FlurlHttpException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
             foreach (Control control in Controls)
@@ -60,6 +67,12 @@ namespace ZephyrNetCafeGUI
         private void LoginForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ButtonSignup_Click(object sender, EventArgs e)
+        {
+            var formSignup = new SignUpForm();
+            formSignup.Show();
         }
     }
 }

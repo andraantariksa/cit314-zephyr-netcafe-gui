@@ -6,6 +6,6 @@ namespace ZephyrNetCafeGUI
 {
     static class Constant
     {
-        public const string URL = "http://localhost:60271";
+        public const string URL = "http://localhost:5000";
     }
 }
