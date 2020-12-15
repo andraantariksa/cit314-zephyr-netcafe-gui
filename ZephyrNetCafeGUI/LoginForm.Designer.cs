@@ -35,14 +35,16 @@ namespace ZephyrNetCafeGUI
             this.TextBoxPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ButtonSignup = new System.Windows.Forms.Button();
+            this.TextBoxPCID = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ComboBoxAccess = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ButtonLogin
             // 
-            this.ButtonLogin.Location = new System.Drawing.Point(910, 379);
+            this.ButtonLogin.Location = new System.Drawing.Point(910, 424);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(90, 40);
             this.ButtonLogin.TabIndex = 0;
@@ -85,31 +87,49 @@ namespace ZephyrNetCafeGUI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(134)))), ((int)(((byte)(222)))));
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.ButtonSignup);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(345, 607);
             this.panel1.TabIndex = 5;
             // 
-            // button3
+            // ButtonSignup
             // 
-            this.button3.Location = new System.Drawing.Point(99, 317);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(140, 40);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "Sign Up";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ButtonSignup.Location = new System.Drawing.Point(99, 281);
+            this.ButtonSignup.Name = "ButtonSignup";
+            this.ButtonSignup.Size = new System.Drawing.Size(140, 40);
+            this.ButtonSignup.TabIndex = 0;
+            this.ButtonSignup.Text = "Sign Up";
+            this.ButtonSignup.UseVisualStyleBackColor = true;
+            this.ButtonSignup.Click += new System.EventHandler(this.ButtonSignup_Click);
             // 
-            // button1
+            // TextBoxPCID
             // 
-            this.button1.Location = new System.Drawing.Point(99, 271);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 40);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.TextBoxPCID.Location = new System.Drawing.Point(688, 380);
+            this.TextBoxPCID.Name = "TextBoxPCID";
+            this.TextBoxPCID.Size = new System.Drawing.Size(312, 23);
+            this.TextBoxPCID.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(612, 383);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 15);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "PC ID";
+            // 
+            // ComboBoxAccess
+            // 
+            this.ComboBoxAccess.FormattingEnabled = true;
+            this.ComboBoxAccess.Items.AddRange(new object[] {
+            "User",
+            "Staff",
+            "Admin"});
+            this.ComboBoxAccess.Location = new System.Drawing.Point(688, 424);
+            this.ComboBoxAccess.Name = "ComboBoxAccess";
+            this.ComboBoxAccess.Size = new System.Drawing.Size(121, 23);
+            this.ComboBoxAccess.TabIndex = 8;
             // 
             // LoginForm
             // 
@@ -117,6 +137,9 @@ namespace ZephyrNetCafeGUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1164, 631);
+            this.Controls.Add(this.ComboBoxAccess);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.TextBoxPCID);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TextBoxPassword);
@@ -135,13 +158,14 @@ namespace ZephyrNetCafeGUI
         #endregion
 
         private System.Windows.Forms.Button ButtonLogin;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TextBoxPassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TextBoxUsername;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ButtonSignup;
+        private System.Windows.Forms.TextBox TextBoxPCID;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox ComboBoxAccess;
     }
 }

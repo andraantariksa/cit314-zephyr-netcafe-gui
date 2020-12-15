@@ -95,10 +95,15 @@ namespace ZephyrNetCafeGUI
             }
         }
 
-
-        private void TabControlCollection_SelectedIndexChanged(object sender, EventArgs e)
+        private void Logout()
         {
+            Dispose();
+            ParentForm.Show();
+        }
 
+        private void DashboardForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Logout();
         }
 
         private void ExitDashboard()

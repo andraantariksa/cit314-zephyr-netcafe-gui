@@ -33,29 +33,31 @@ namespace ZephyrNetCafeGUI
             var userUsername = TextBoxUsername.Text;
             var userPassword = TextBoxPassword.Text;
 
-            var result = await $"{Constant.URL}/api/user/auth"
-                .AllowAnyHttpStatus()
-                .PostJsonAsync(new
-                {
-                    Name = userName,
-                    Email = userEmail,
-                    Username = userUsername,
-                    Password = userPassword
-                });
-            switch (result.StatusCode)
+            try
             {
-                case 403:
-                    MessageBox.Show("Username or password does not match");
-                    break;
-                case 200:
-                    var dashboardForm = new DashboardForm(userUsername, userPassword);
-                    dashboardForm.Show();
-                    Hide();
+                var result = await $"{Constant.URL}/api/user"
+                    .AllowAnyHttpStatus()
+                    .PostJsonAsync(new
+                    {
+                        Name = userName,
+                        Email = userEmail,
+                        Username = userUsername,
+                        Password = userPassword
+                    });
 
-                    break;
-                default:
-                    MessageBox.Show("Error");
-                    break;
+                switch (result.StatusCode)
+                {
+                    case 200:
+                        MessageBox.Show("Signup success!");
+                        break;
+                    default:
+                        MessageBox.Show("Error");
+                        break;
+                }
+            }
+            catch (FlurlHttpException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
             foreach (Control control in Controls)
