@@ -12,10 +12,25 @@ namespace ZephyrNetCafeGUI
 {
     public partial class DashboardForm : Form
     {
-        public DashboardForm()
+        public string Username { get; private set; }
+        public string Password { get; private set; }
+
+        public DashboardForm(string username, string password)
         {
             InitializeComponent();
+
+            Username = username;
+            Password = password;
         }
 
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
