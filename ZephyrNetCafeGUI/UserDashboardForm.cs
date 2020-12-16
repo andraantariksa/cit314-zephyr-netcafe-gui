@@ -212,5 +212,10 @@ namespace ZephyrNetCafeGUI
                 DataGridViewTransactionItems.Rows.Add(transactionItem.ID, transactionItem.Name, transactionItem.Price, transactionItem.Quantity, transactionItem.Price * transactionItem.Quantity);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
