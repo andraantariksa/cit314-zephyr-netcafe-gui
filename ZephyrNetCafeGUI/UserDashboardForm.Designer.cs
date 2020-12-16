@@ -434,6 +434,7 @@ namespace ZephyrNetCafeGUI
             // 
             // TimerControlDuration
             // 
+            this.TimerControlDuration.Enabled = true;
             this.TimerControlDuration.Interval = 60000;
             this.TimerControlDuration.Tick += new System.EventHandler(this.TimerControlDuration_Tick);
             // 

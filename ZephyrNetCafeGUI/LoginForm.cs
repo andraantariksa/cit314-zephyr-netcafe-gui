@@ -108,7 +108,7 @@ namespace ZephyrNetCafeGUI
             }
             catch (FlurlHttpException ex)
             {
-                if (ex.Call.Response.StatusCode == 403)
+                if (ex.Call.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.Forbidden)
                 {
                     MessageBox.Show("Wrong username or password");
                 }

@@ -114,6 +114,10 @@ namespace ZephyrNetCafeGUI
                 MessageBox.Show($"{ex.Message}\n{errorResp}");
             }
 
+            LoadShopItems();
+            LoadComputerActive();
+            LoadComputerItemList();
+
             ComboBoxTransactionItemList.Enabled = true;
         }
 
@@ -206,6 +210,104 @@ namespace ZephyrNetCafeGUI
         {
             m_LoginForm.Show();
             Dispose();
+        }
+        public class Item
+        {
+            public long ID { get; set; }
+            public string Name { get; set; }
+            public int Price { get; set; }
+            public int Quantity { get; set; }
+            public byte IsDeleted { get; set; }
+        }
+
+        private async void LoadShopItems()
+        {
+            try
+            {
+                var shopItems = await $"{Constant.URL}/api/shop"
+                        .GetJsonAsync<List<Item>>();
+                DataGridViewShop.Rows.Clear();
+                foreach (Item item in shopItems)
+                {
+                    DataGridViewShop.Rows.Add(item.Name, item.Price);
+                }
+            }
+            catch (FlurlHttpException ex)
+            {
+                MessageBox.Show(ex.Message);
+                Logout();
+            }
+        }
+
+        public class ComputerUsageAndComputerField
+        {
+            public long ComputerID;
+            public string ComputerName;
+            public string ComputerSpec;
+            public byte ComputerIsDeleted;
+            public long ComputerUsageID;
+            public long ComputerUsageUserID;
+            public long ComputerUsageComputerID;
+            public DateTime ComputerUsageEndDateTime;
+            public DateTime ComputerUsageStartDateTime;
+        }
+
+        public class ComputerListField
+        {
+            public long ID;
+            public string Name;
+            public string Spec;
+            public byte IsDeleted;
+        }
+        public async void LoadComputerActive()
+        {
+            try
+            {
+                var computerusage = await $"{Constant.URL}/api/computerusage/now"
+                    .GetJsonAsync<List<ComputerUsageAndComputerField>>();
+                DataGridViewComputerActive.Rows.Clear();
+                foreach (ComputerUsageAndComputerField comp in computerusage)
+                {
+                    DataGridViewComputerActive.Rows.Add(
+                        comp.ComputerID,
+                        comp.ComputerName,
+                        comp.ComputerSpec,
+                        comp.ComputerIsDeleted,
+                        comp.ComputerUsageID,
+                        comp.ComputerUsageUserID,
+                        comp.ComputerUsageComputerID,
+                        comp.ComputerUsageEndDateTime,
+                        comp.ComputerUsageStartDateTime
+                    );
+                }
+            }
+            catch (FlurlHttpException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        public async void LoadComputerItemList()
+        {
+            try
+            {
+                var computerlist = await $"{Constant.URL}/api/computer"
+                    .GetJsonAsync<List<ComputerListField>>();
+
+                DataGridViewComputerItemList.Rows.Clear();
+                foreach (ComputerListField comp in computerlist)
+                {
+                    DataGridViewComputerItemList.Rows.Add(
+                        comp.ID,
+                        comp.Name,
+                        comp.Spec
+                    );
+                }
+            }
+            catch (FlurlHttpException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
 
         private void StaffDashboardForm_FormClosed(object sender, FormClosedEventArgs e)

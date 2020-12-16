@@ -69,8 +69,6 @@ namespace ZephyrNetCafeGUI
         {
             try
             {
-                var shopItems = await $"{Constant.URL}/api/shop"
-                    .GetJsonAsync<List<Item>>();
                 var user = await $"{Constant.URL}/api/user/single/{m_Username}"
                     .GetJsonAsync<UserDataField>();
                 if (user != null)
@@ -91,16 +89,30 @@ namespace ZephyrNetCafeGUI
                     .ReceiveJson<ComputerUsageField>();
                 m_UsageID = response.ComputerUsageID;
 
+                LabelWelcomeUser.Text = $"Welcome, user {m_Username}";
+                LabelDuration.Text = $":{m_Duration}";
+
+                LoadUserTransaction();
+                LoadShopItems();
+            }
+            catch (FlurlHttpException ex)
+            {
+                MessageBox.Show(ex.Message);
+                Logout();
+            }
+        }
+
+        private async void LoadShopItems()
+        {
+            try
+            {
+                var shopItems = await $"{Constant.URL}/api/shop"
+                        .GetJsonAsync<List<Item>>();
+                DataGridViewShop.Rows.Clear();
                 foreach (Item item in shopItems)
                 {
                     DataGridViewShop.Rows.Add(item.Name, item.Price);
                 }
-
-                LabelWelcomeUser.Text = $"Welcome, user {m_Username}";
-                LabelDuration.Text = $":{m_Duration}";
-                TimerControlDuration.Start();
-
-                LoadUserTransaction();
             }
             catch (FlurlHttpException ex)
             {

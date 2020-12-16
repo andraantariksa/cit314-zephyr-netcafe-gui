@@ -1,25 +1,29 @@
-﻿using System;
+﻿using Flurl.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Text;
-using Flurl.Http;
 using System.Windows.Forms;
 
 namespace ZephyrNetCafeGUI
 {
-    public partial class AddShopItemDialog : UserControl
+    public partial class AddShopItemForm : Form
     {
-        public AdminDashboardForm AdminForm { set; get; }
-        private string AuthUsername { set; get; }
-        private string AuthPassword { set; get; }
-        public AddShopItemDialog(string authname, string authpass)
+        public AddShopItemForm(string authUsername, string authPassword, AdminDashboardForm adminDashboardForm)
         {
-            AuthPassword = authname;
-            AuthPassword = authpass;
             InitializeComponent();
+
+            AuthUsername = authUsername;
+            AuthPassword = authPassword;
+            AdminDashboardForm = adminDashboardForm;
         }
+
+        private AdminDashboardForm AdminDashboardForm;
+        private string AuthUsername;
+        private string AuthPassword;
+
         private async void ButtonAdd_Click(object sender, EventArgs e)
         {
             foreach (Control control in Controls)
@@ -32,9 +36,8 @@ namespace ZephyrNetCafeGUI
                     .PostJsonAsync(new
                     {
                         Name = TextBoxName.Text,
-                        AuthUsername = this.AuthUsername,
                         Price = (int)NumericPrice.Value,
-                        Quantity = (int)NumericQuantity.Value,
+                        AuthUsername = this.AuthUsername,
                         AuthPassword = this.AuthPassword
                     });
                 if (response.StatusCode == 200)
@@ -54,17 +57,21 @@ namespace ZephyrNetCafeGUI
 
         private void ButtonClose_Click(object sender, EventArgs e)
         {
-            try
-            {
-                AdminForm.Enabled = true;
-                AdminForm.UpdateComputerActive();
-                AdminForm.UpdateComputerItemList();
-                this.Dispose();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
+            OnClose();
+        }
+
+        private void OnClose()
+        {
+            AdminDashboardForm.LoadComputerActive();
+            AdminDashboardForm.LoadComputerItemList();
+            AdminDashboardForm.Show();
+            Hide();
+            Dispose();
+        }
+
+        private void AddShopItemForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            OnClose();
         }
     }
 }

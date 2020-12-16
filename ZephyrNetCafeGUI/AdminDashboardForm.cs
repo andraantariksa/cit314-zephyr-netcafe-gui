@@ -27,6 +27,7 @@ namespace ZephyrNetCafeGUI
             public DateTime ComputerUsageEndDateTime;
             public DateTime ComputerUsageStartDateTime;
         }
+
         public class ComputerListField
         {
             public long ID;
@@ -34,6 +35,7 @@ namespace ZephyrNetCafeGUI
             public string Spec;
             public byte IsDeleted;
         }
+
         public class ShopItemListField
         {
             public long ID;
@@ -53,6 +55,8 @@ namespace ZephyrNetCafeGUI
             public byte Role;
         }
         string[] Roles = {"Admin", "Staff", "User"};
+        public List<Tuple<Transaction, List<TransactionItem>>> m_TransactionTuples { get; private set; }
+
         public AdminDashboardForm(string authUsername, string authPassword, Form loginForm)
         {
             AuthUsername = authUsername;
@@ -66,8 +70,11 @@ namespace ZephyrNetCafeGUI
 
         private void AdminDashboardForm_Load(object sender, EventArgs e)
         {
-            UpdateComputerActive();
-            UpdateComputerItemList();
+            LoadComputerActive();
+            LoadComputerItemList();
+            LoadUserList();
+            LoadShopItemList();
+            LoadTransactionList();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -80,7 +87,7 @@ namespace ZephyrNetCafeGUI
 
         }
 
-        public async void UpdateComputerActive()
+        public async void LoadComputerActive()
         {
             try
             {
@@ -108,7 +115,7 @@ namespace ZephyrNetCafeGUI
             }
         }
 
-        public async void UpdateComputerItemList()
+        public async void LoadComputerItemList()
         {
             try
             {
@@ -121,8 +128,7 @@ namespace ZephyrNetCafeGUI
                     DataGridViewComputerItemList.Rows.Add(
                         comp.ID,
                         comp.Name,
-                        comp.Spec,
-                        comp.IsDeleted
+                        comp.Spec
                     );
                 }
             }
@@ -131,7 +137,8 @@ namespace ZephyrNetCafeGUI
                 MessageBox.Show(exc.Message);
             }
         }
-        public async void UpdateShopItemList()
+
+        public async void LoadShopItemList()
         {
             try
             {
@@ -141,12 +148,11 @@ namespace ZephyrNetCafeGUI
                 DataGridViewShopItem.Rows.Clear();
                 foreach (ShopItemListField shop in shopitemlist)
                 {
-                    DataGridViewComputerItemList.Rows.Add(
+                    DataGridViewShopItem.Rows.Add(
                         shop.ID,
                         shop.Name,
                         shop.Price,
-                        shop.Quantity,
-                        shop.IsDeleted
+                        shop.Quantity
                     );
                 }
             }
@@ -155,7 +161,8 @@ namespace ZephyrNetCafeGUI
                 MessageBox.Show(exc.Message);
             }
         }
-        public async void UpdateUserList()
+
+        public async void LoadUserList()
         {
             try
             {
@@ -171,7 +178,8 @@ namespace ZephyrNetCafeGUI
                         user.Name,
                         user.Email,
                         user.Duration,
-                        Roles[user.Role]
+                        Roles[user.Role],
+                        user.Password
                     );
                 }
             }
@@ -184,10 +192,11 @@ namespace ZephyrNetCafeGUI
         {
             try
             {
-                UpdateComputerActive();
-                UpdateComputerItemList();
-                UpdateShopItemList();
-                UpdateUserList();
+                LoadComputerActive();
+                LoadComputerItemList();
+                LoadUserList();
+                LoadShopItemList();
+                LoadTransactionList();
             }
             catch (Exception exc)
             {
@@ -198,10 +207,9 @@ namespace ZephyrNetCafeGUI
 
         private void ButtonAddComputer_Click(object sender, EventArgs e)
         {
-            AddComputerDialog AddDialog = new AddComputerDialog(AuthUsername, AuthPassword);
-            AddDialog.AdminForm = this;
-            Enabled = false;
-            AddDialog.Show();
+            Hide();
+            var addComputerForm = new AddComputerForm(AuthUsername, AuthPassword, this);
+            addComputerForm.Show();
         }
 
         private void AdminDashboardForm_EnabledChanged(object sender, EventArgs e)
@@ -225,10 +233,11 @@ namespace ZephyrNetCafeGUI
 
         private async void ButtonDeleteComputer_Click(object sender, EventArgs e)
         {
-            foreach (Control control in TabPageComputer.Controls)
+            foreach (Control control in Controls)
             {
                 control.Enabled = false;
             }
+
             try
             {
                 if (DataGridViewComputerItemList.SelectedRows.Count > 0)
@@ -242,6 +251,7 @@ namespace ZephyrNetCafeGUI
                             AuthUsername = this.AuthUsername,
                             AuthPassword = this.AuthPassword
                         });
+                    LoadComputerItemList();
                 }
             }
             catch (FlurlHttpException exc)
@@ -253,7 +263,7 @@ namespace ZephyrNetCafeGUI
                 MessageBox.Show(ex.Message);
             }
 
-            foreach (Control control in TabPageComputer.Controls)
+            foreach (Control control in Controls)
             {
                 control.Enabled = true;
             }
@@ -261,9 +271,8 @@ namespace ZephyrNetCafeGUI
 
         private void ButtonAddShopItem_Click(object sender, EventArgs e)
         {
-            AddShopItemDialog AddDialog = new AddShopItemDialog(AuthUsername, AuthPassword);
-            AddDialog.AdminForm = this;
-            Enabled = false;
+            Hide();
+            AddShopItemForm AddDialog = new AddShopItemForm(AuthUsername, AuthPassword, this);
             AddDialog.Show();
         }
 
@@ -272,12 +281,11 @@ namespace ZephyrNetCafeGUI
             if (DataGridViewShopItem.SelectedRows.Count > 0)
             {
                 long s_ProductID = (long)DataGridViewShopItem.SelectedRows[0].Cells[0].Value;
-                string name = DataGridViewShopItem.SelectedRows[0].Cells[1].Value.ToString();
+                string name = (string)DataGridViewShopItem.SelectedRows[0].Cells[1].Value;
                 int price = (int)DataGridViewShopItem.SelectedRows[0].Cells[2].Value;
-                EditShopItemDialog EditDialog = new EditShopItemDialog(AuthUsername, AuthPassword, s_ProductID, name, price);
-                EditDialog.AdminForm = this;
-                Enabled = false;
+                EditShopItemForm EditDialog = new EditShopItemForm(AuthUsername, AuthPassword, s_ProductID, this, name, price);
                 EditDialog.Show();
+                Hide();
             }
             else
             {
@@ -287,10 +295,11 @@ namespace ZephyrNetCafeGUI
 
         private async void ButtonDeleteShopItem_Click(object sender, EventArgs e)
         {
-            foreach (Control control in TabPageShopItem.Controls)
+            foreach (Control control in Controls)
             {
                 control.Enabled = false;
             }
+
             try
             {
                 if (DataGridViewComputerItemList.SelectedRows.Count > 0)
@@ -301,21 +310,22 @@ namespace ZephyrNetCafeGUI
                         .SendJsonAsync(System.Net.Http.HttpMethod.Delete, new
                         {
                             ProductID = s_ProductID,
-                            AuthUsername = this.AuthUsername,
-                            AuthPassword = this.AuthPassword
+                            AuthUsername,
+                            AuthPassword
                         });
+                    LoadShopItemList();
                 }
             }
-            catch (FlurlHttpException exc)
+            catch (FlurlHttpException ex)
             {
-                MessageBox.Show(exc.Message);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
-            foreach (Control control in TabPageShopItem.Controls)
+            foreach (Control control in Controls)
             {
                 control.Enabled = true;
             }
@@ -336,17 +346,103 @@ namespace ZephyrNetCafeGUI
             if (DataGridViewUserList.SelectedRows.Count > 0)
             {
                 long s_UserID = (long)DataGridViewUserList.SelectedRows[0].Cells[0].Value;
-                string name = DataGridViewUserList.SelectedRows[0].Cells[2].Value.ToString();
-                string email = DataGridViewUserList.SelectedRows[0].Cells[3].Value.ToString();
-                string role = DataGridViewUserList.SelectedRows[0].Cells[5].Value.ToString();
-                EditUserDialog EditDialog = new EditUserDialog(AuthUsername, AuthPassword, s_UserID, name, email, role);
-                EditDialog.AdminForm = this;
-                Enabled = false;
+                string name = (string)DataGridViewUserList.SelectedRows[0].Cells[2].Value;
+                string email = (string)DataGridViewUserList.SelectedRows[0].Cells[3].Value;
+                string role = (string)DataGridViewUserList.SelectedRows[0].Cells[5].Value;
+                string password = (string)DataGridViewUserList.SelectedRows[0].Cells[6].Value;
+                EditUserForm EditDialog = new EditUserForm(AuthUsername, AuthPassword, s_UserID, this, name, email, role, password);
                 EditDialog.Show();
+                Hide();
             }
             else
             {
                 MessageBox.Show("Not selected!");
+            }
+        }
+
+        private async void ButtonDeleteUser_Click(object sender, EventArgs e)
+        {
+            foreach (Control control in Controls)
+            {
+                control.Enabled = false;
+            }
+
+            try
+            {
+                if (DataGridViewComputerItemList.SelectedRows.Count > 0)
+                {
+                    long s_UserID = (long)DataGridViewUserList.SelectedRows[0].Cells[0].Value;
+                    var response = await $"{Constant.URL}/api/user"
+                        .SendJsonAsync(System.Net.Http.HttpMethod.Delete, new
+                        {
+                            UserID = s_UserID,
+                            AuthUsername,
+                            AuthPassword
+                        });
+                    LoadUserList();
+                }
+            }
+            catch (FlurlHttpException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            foreach (Control control in Controls)
+            {
+                control.Enabled = true;
+            }
+        }
+
+        public class Transaction
+        {
+            public long ID { set; get; }
+            public long UserID { set; get; }
+            public DateTime CreatedAt { set; get; }
+        }
+
+        public class TransactionItem
+        {
+            public long ID { get; set; }
+            public long TransactionID { get; set; }
+            public string Name { get; set; }
+            public long ItemID { get; set; }
+            public int Price { get; set; }
+            public int Quantity { get; set; }
+        }
+
+        private async void LoadTransactionList()
+        {
+            try
+            {
+                m_TransactionTuples = await $"{Constant.URL}/api/transaction"
+                    .GetJsonAsync<List<Tuple<Transaction, List<TransactionItem>>>>();
+                foreach (Tuple<Transaction, List<TransactionItem>> transactionTuple in m_TransactionTuples)
+                {
+                    DataGridViewTransactions.Rows.Add(transactionTuple.Item1.ID, transactionTuple.Item1.CreatedAt);
+                }
+            }
+            catch (FlurlHttpException ex)
+            {
+                MessageBox.Show(ex.Message);
+                Logout();
+            }
+        }
+
+        private void DataGridViewTransactions_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var selectedRow = DataGridViewTransactions.SelectedRows[0];
+            var selectedRowIdx = selectedRow.Index;
+
+            DataGridViewTransactionItems.Rows.Clear();
+
+            var transactionItems = m_TransactionTuples[selectedRowIdx].Item2;
+            foreach (TransactionItem transactionItem in transactionItems)
+            {
+                DataGridViewTransactionItems.Rows.Add(transactionItem.ID, transactionItem.Name, transactionItem.Price, transactionItem.Quantity, transactionItem.Price * transactionItem.Quantity);
             }
         }
     }

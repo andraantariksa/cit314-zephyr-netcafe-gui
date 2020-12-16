@@ -32,8 +32,6 @@ namespace ZephyrNetCafeGUI
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
             this.LabelWelcomeStaff = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.TextBoxMinutes = new System.Windows.Forms.TextBox();
@@ -48,7 +46,6 @@ namespace ZephyrNetCafeGUI
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.vScrollBar2 = new System.Windows.Forms.VScrollBar();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
@@ -67,14 +64,34 @@ namespace ZephyrNetCafeGUI
             this.DataGridViewCartItemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataGridViewCartItemTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label14 = new System.Windows.Forms.Label();
+            this.DataGridViewShop = new System.Windows.Forms.DataGridView();
+            this.DataGridViewShopName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewShopPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LabelComputerItem = new System.Windows.Forms.Label();
+            this.DataGridViewComputerItemList = new System.Windows.Forms.DataGridView();
+            this.ColumnItemComputerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnItemComputerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnItemComputerSpec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewComputerActive = new System.Windows.Forms.DataGridView();
+            this.ColumnActiveComputerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnActiveComputerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnActiveComputerSpec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnActiveComputerIsDeleted = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnActiveComputerUsageID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnActiveComputerUsageUserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnActiveComputerUsageComputerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnActiveComputerUsageEndDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnActiveComputerUsageStartDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LabelActiveComputer = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewShop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewComputerItemList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewComputerActive)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -86,19 +103,21 @@ namespace ZephyrNetCafeGUI
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(959, 512);
+            this.tabControl1.Size = new System.Drawing.Size(959, 573);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.LabelComputerItem);
+            this.tabPage1.Controls.Add(this.DataGridViewComputerItemList);
+            this.tabPage1.Controls.Add(this.DataGridViewComputerActive);
+            this.tabPage1.Controls.Add(this.LabelActiveComputer);
             this.tabPage1.Controls.Add(this.vScrollBar1);
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.LabelWelcomeStaff);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(951, 484);
+            this.tabPage1.Size = new System.Drawing.Size(951, 545);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dashboard";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -109,24 +128,6 @@ namespace ZephyrNetCafeGUI
             this.vScrollBar1.Name = "vScrollBar1";
             this.vScrollBar1.Size = new System.Drawing.Size(17, 477);
             this.vScrollBar1.TabIndex = 2;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 75);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1077, 477);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 15);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Active Computer";
             // 
             // LabelWelcomeStaff
             // 
@@ -246,8 +247,8 @@ namespace ZephyrNetCafeGUI
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.DataGridViewShop);
             this.tabPage3.Controls.Add(this.vScrollBar2);
-            this.tabPage3.Controls.Add(this.dataGridView2);
             this.tabPage3.Controls.Add(this.label13);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
@@ -263,15 +264,6 @@ namespace ZephyrNetCafeGUI
             this.vScrollBar2.Name = "vScrollBar2";
             this.vScrollBar2.Size = new System.Drawing.Size(17, 490);
             this.vScrollBar2.TabIndex = 2;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(33, 56);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(1067, 490);
-            this.dataGridView2.TabIndex = 1;
             // 
             // label13
             // 
@@ -300,7 +292,7 @@ namespace ZephyrNetCafeGUI
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(951, 484);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Transaction";
+            this.tabPage4.Text = "Create Transaction";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // label11
@@ -435,11 +427,179 @@ namespace ZephyrNetCafeGUI
             this.label14.TabIndex = 1;
             this.label14.Text = "Add Transaction";
             // 
+            // DataGridViewShop
+            // 
+            this.DataGridViewShop.AllowUserToAddRows = false;
+            this.DataGridViewShop.AllowUserToDeleteRows = false;
+            this.DataGridViewShop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewShop.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGridViewShopName,
+            this.DataGridViewShopPrice});
+            this.DataGridViewShop.Location = new System.Drawing.Point(348, 27);
+            this.DataGridViewShop.Name = "DataGridViewShop";
+            this.DataGridViewShop.ReadOnly = true;
+            this.DataGridViewShop.RowTemplate.Height = 25;
+            this.DataGridViewShop.Size = new System.Drawing.Size(255, 431);
+            this.DataGridViewShop.TabIndex = 3;
+            // 
+            // DataGridViewShopName
+            // 
+            this.DataGridViewShopName.HeaderText = "Name";
+            this.DataGridViewShopName.Name = "DataGridViewShopName";
+            this.DataGridViewShopName.ReadOnly = true;
+            // 
+            // DataGridViewShopPrice
+            // 
+            this.DataGridViewShopPrice.HeaderText = "Price";
+            this.DataGridViewShopPrice.Name = "DataGridViewShopPrice";
+            this.DataGridViewShopPrice.ReadOnly = true;
+            // 
+            // LabelComputerItem
+            // 
+            this.LabelComputerItem.AutoSize = true;
+            this.LabelComputerItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LabelComputerItem.Location = new System.Drawing.Point(27, 273);
+            this.LabelComputerItem.Name = "LabelComputerItem";
+            this.LabelComputerItem.Size = new System.Drawing.Size(185, 25);
+            this.LabelComputerItem.TabIndex = 4;
+            this.LabelComputerItem.Text = "Computer Item Lists";
+            // 
+            // DataGridViewComputerItemList
+            // 
+            this.DataGridViewComputerItemList.AllowUserToAddRows = false;
+            this.DataGridViewComputerItemList.AllowUserToDeleteRows = false;
+            this.DataGridViewComputerItemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewComputerItemList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnItemComputerID,
+            this.ColumnItemComputerName,
+            this.ColumnItemComputerSpec});
+            this.DataGridViewComputerItemList.Location = new System.Drawing.Point(27, 301);
+            this.DataGridViewComputerItemList.MultiSelect = false;
+            this.DataGridViewComputerItemList.Name = "DataGridViewComputerItemList";
+            this.DataGridViewComputerItemList.ReadOnly = true;
+            this.DataGridViewComputerItemList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DataGridViewComputerItemList.Size = new System.Drawing.Size(450, 225);
+            this.DataGridViewComputerItemList.TabIndex = 6;
+            this.DataGridViewComputerItemList.Text = "dataGridView1";
+            // 
+            // ColumnItemComputerID
+            // 
+            this.ColumnItemComputerID.HeaderText = "Computer ID";
+            this.ColumnItemComputerID.Name = "ColumnItemComputerID";
+            this.ColumnItemComputerID.ReadOnly = true;
+            // 
+            // ColumnItemComputerName
+            // 
+            this.ColumnItemComputerName.HeaderText = "Computer Name";
+            this.ColumnItemComputerName.Name = "ColumnItemComputerName";
+            this.ColumnItemComputerName.ReadOnly = true;
+            // 
+            // ColumnItemComputerSpec
+            // 
+            this.ColumnItemComputerSpec.HeaderText = "Computer Spec";
+            this.ColumnItemComputerSpec.Name = "ColumnItemComputerSpec";
+            this.ColumnItemComputerSpec.ReadOnly = true;
+            // 
+            // DataGridViewComputerActive
+            // 
+            this.DataGridViewComputerActive.AllowUserToAddRows = false;
+            this.DataGridViewComputerActive.AllowUserToDeleteRows = false;
+            this.DataGridViewComputerActive.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewComputerActive.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnActiveComputerID,
+            this.ColumnActiveComputerName,
+            this.ColumnActiveComputerSpec,
+            this.ColumnActiveComputerIsDeleted,
+            this.ColumnActiveComputerUsageID,
+            this.ColumnActiveComputerUsageUserID,
+            this.ColumnActiveComputerUsageComputerID,
+            this.ColumnActiveComputerUsageEndDateTime,
+            this.ColumnActiveComputerUsageStartDateTime});
+            this.DataGridViewComputerActive.Location = new System.Drawing.Point(27, 74);
+            this.DataGridViewComputerActive.Name = "DataGridViewComputerActive";
+            this.DataGridViewComputerActive.ReadOnly = true;
+            this.DataGridViewComputerActive.Size = new System.Drawing.Size(955, 196);
+            this.DataGridViewComputerActive.TabIndex = 7;
+            this.DataGridViewComputerActive.Text = "dataGridView1";
+            // 
+            // ColumnActiveComputerID
+            // 
+            this.ColumnActiveComputerID.HeaderText = "Computer ID";
+            this.ColumnActiveComputerID.Name = "ColumnActiveComputerID";
+            this.ColumnActiveComputerID.ReadOnly = true;
+            this.ColumnActiveComputerID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ColumnActiveComputerName
+            // 
+            this.ColumnActiveComputerName.HeaderText = "Computer Name";
+            this.ColumnActiveComputerName.Name = "ColumnActiveComputerName";
+            this.ColumnActiveComputerName.ReadOnly = true;
+            this.ColumnActiveComputerName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ColumnActiveComputerSpec
+            // 
+            this.ColumnActiveComputerSpec.HeaderText = "Computer Spec";
+            this.ColumnActiveComputerSpec.Name = "ColumnActiveComputerSpec";
+            this.ColumnActiveComputerSpec.ReadOnly = true;
+            this.ColumnActiveComputerSpec.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ColumnActiveComputerIsDeleted
+            // 
+            this.ColumnActiveComputerIsDeleted.HeaderText = "Computer IsDeleted";
+            this.ColumnActiveComputerIsDeleted.Name = "ColumnActiveComputerIsDeleted";
+            this.ColumnActiveComputerIsDeleted.ReadOnly = true;
+            this.ColumnActiveComputerIsDeleted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ColumnActiveComputerUsageID
+            // 
+            this.ColumnActiveComputerUsageID.HeaderText = "ComputerUsage ID";
+            this.ColumnActiveComputerUsageID.Name = "ColumnActiveComputerUsageID";
+            this.ColumnActiveComputerUsageID.ReadOnly = true;
+            this.ColumnActiveComputerUsageID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ColumnActiveComputerUsageUserID
+            // 
+            this.ColumnActiveComputerUsageUserID.HeaderText = "ComputerUsage UserID";
+            this.ColumnActiveComputerUsageUserID.Name = "ColumnActiveComputerUsageUserID";
+            this.ColumnActiveComputerUsageUserID.ReadOnly = true;
+            this.ColumnActiveComputerUsageUserID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ColumnActiveComputerUsageComputerID
+            // 
+            this.ColumnActiveComputerUsageComputerID.HeaderText = "ComputerUsage ComputerID";
+            this.ColumnActiveComputerUsageComputerID.Name = "ColumnActiveComputerUsageComputerID";
+            this.ColumnActiveComputerUsageComputerID.ReadOnly = true;
+            this.ColumnActiveComputerUsageComputerID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ColumnActiveComputerUsageEndDateTime
+            // 
+            this.ColumnActiveComputerUsageEndDateTime.HeaderText = "ComputerUsage EndDate Time";
+            this.ColumnActiveComputerUsageEndDateTime.Name = "ColumnActiveComputerUsageEndDateTime";
+            this.ColumnActiveComputerUsageEndDateTime.ReadOnly = true;
+            this.ColumnActiveComputerUsageEndDateTime.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ColumnActiveComputerUsageStartDateTime
+            // 
+            this.ColumnActiveComputerUsageStartDateTime.HeaderText = "ComputerUsage StartDate Time";
+            this.ColumnActiveComputerUsageStartDateTime.Name = "ColumnActiveComputerUsageStartDateTime";
+            this.ColumnActiveComputerUsageStartDateTime.ReadOnly = true;
+            this.ColumnActiveComputerUsageStartDateTime.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // LabelActiveComputer
+            // 
+            this.LabelActiveComputer.AutoSize = true;
+            this.LabelActiveComputer.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LabelActiveComputer.Location = new System.Drawing.Point(27, 46);
+            this.LabelActiveComputer.Name = "LabelActiveComputer";
+            this.LabelActiveComputer.Size = new System.Drawing.Size(157, 25);
+            this.LabelActiveComputer.TabIndex = 5;
+            this.LabelActiveComputer.Text = "Active Computer";
+            // 
             // StaffDashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 526);
+            this.ClientSize = new System.Drawing.Size(972, 597);
             this.Controls.Add(this.tabControl1);
             this.Name = "StaffDashboardForm";
             this.Text = "Staff Dashboard";
@@ -448,15 +608,16 @@ namespace ZephyrNetCafeGUI
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewShop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewComputerItemList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewComputerActive)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -465,8 +626,6 @@ namespace ZephyrNetCafeGUI
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
@@ -479,7 +638,6 @@ namespace ZephyrNetCafeGUI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.VScrollBar vScrollBar1;
@@ -508,5 +666,24 @@ namespace ZephyrNetCafeGUI
         private System.Windows.Forms.DataGridView DataGridViewCart;
         private System.Windows.Forms.TextBox TextBoxTransactionUserUsername;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridView DataGridViewShop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewShopName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewShopPrice;
+        private System.Windows.Forms.Label LabelComputerItem;
+        private System.Windows.Forms.DataGridView DataGridViewComputerItemList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnItemComputerID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnItemComputerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnItemComputerSpec;
+        private System.Windows.Forms.DataGridView DataGridViewComputerActive;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActiveComputerID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActiveComputerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActiveComputerSpec;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActiveComputerIsDeleted;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActiveComputerUsageID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActiveComputerUsageUserID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActiveComputerUsageComputerID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActiveComputerUsageEndDateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnActiveComputerUsageStartDateTime;
+        private System.Windows.Forms.Label LabelActiveComputer;
     }
 }
