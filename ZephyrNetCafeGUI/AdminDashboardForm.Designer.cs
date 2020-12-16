@@ -67,6 +67,13 @@ namespace ZephyrNetCafeGUI
             this.ButtonEditUser = new System.Windows.Forms.Button();
             this.ButtonDeleteUser = new System.Windows.Forms.Button();
             this.DataGridViewUserList = new System.Windows.Forms.DataGridView();
+            this.ColumnUserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUserUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUserEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUserDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUserRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUserPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.DataGridViewTransactionItems = new System.Windows.Forms.DataGridView();
@@ -90,13 +97,6 @@ namespace ZephyrNetCafeGUI
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUserUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUserEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUserDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUserRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUserPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabControlComputer.SuspendLayout();
             this.TabPageComputer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewComputerItemList)).BeginInit();
@@ -119,12 +119,13 @@ namespace ZephyrNetCafeGUI
             this.TabControlComputer.Location = new System.Drawing.Point(12, 12);
             this.TabControlComputer.Name = "TabControlComputer";
             this.TabControlComputer.SelectedIndex = 0;
-            this.TabControlComputer.Size = new System.Drawing.Size(1087, 600);
+            this.TabControlComputer.Size = new System.Drawing.Size(1086, 637);
             this.TabControlComputer.TabIndex = 1;
             this.TabControlComputer.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // TabPageComputer
             // 
+            this.TabPageComputer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.TabPageComputer.Controls.Add(this.ButtonDeleteComputer);
             this.TabPageComputer.Controls.Add(this.ButtonAddComputer);
             this.TabPageComputer.Controls.Add(this.LabelComputerItem);
@@ -135,35 +136,46 @@ namespace ZephyrNetCafeGUI
             this.TabPageComputer.Location = new System.Drawing.Point(4, 24);
             this.TabPageComputer.Name = "TabPageComputer";
             this.TabPageComputer.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPageComputer.Size = new System.Drawing.Size(1079, 572);
+            this.TabPageComputer.Size = new System.Drawing.Size(1078, 609);
             this.TabPageComputer.TabIndex = 0;
             this.TabPageComputer.Text = "Computer Management";
-            this.TabPageComputer.UseVisualStyleBackColor = true;
             // 
             // ButtonDeleteComputer
             // 
+            this.ButtonDeleteComputer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.ButtonDeleteComputer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonDeleteComputer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonDeleteComputer.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ButtonDeleteComputer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ButtonDeleteComputer.Location = new System.Drawing.Point(499, 513);
             this.ButtonDeleteComputer.Name = "ButtonDeleteComputer";
-            this.ButtonDeleteComputer.Size = new System.Drawing.Size(112, 51);
+            this.ButtonDeleteComputer.Size = new System.Drawing.Size(139, 51);
             this.ButtonDeleteComputer.TabIndex = 4;
             this.ButtonDeleteComputer.Text = "Delete Computer";
-            this.ButtonDeleteComputer.UseVisualStyleBackColor = true;
+            this.ButtonDeleteComputer.UseVisualStyleBackColor = false;
             this.ButtonDeleteComputer.Click += new System.EventHandler(this.ButtonDeleteComputer_Click);
             // 
             // ButtonAddComputer
             // 
-            this.ButtonAddComputer.Location = new System.Drawing.Point(499, 430);
+            this.ButtonAddComputer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
+            this.ButtonAddComputer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonAddComputer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonAddComputer.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ButtonAddComputer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ButtonAddComputer.Location = new System.Drawing.Point(499, 456);
             this.ButtonAddComputer.Name = "ButtonAddComputer";
-            this.ButtonAddComputer.Size = new System.Drawing.Size(112, 51);
+            this.ButtonAddComputer.Size = new System.Drawing.Size(139, 51);
             this.ButtonAddComputer.TabIndex = 4;
             this.ButtonAddComputer.Text = "Add Computer";
-            this.ButtonAddComputer.UseVisualStyleBackColor = true;
+            this.ButtonAddComputer.UseVisualStyleBackColor = false;
             this.ButtonAddComputer.Click += new System.EventHandler(this.ButtonAddComputer_Click);
             // 
             // LabelComputerItem
             // 
             this.LabelComputerItem.AutoSize = true;
+            this.LabelComputerItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LabelComputerItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LabelComputerItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.LabelComputerItem.Location = new System.Drawing.Point(30, 311);
             this.LabelComputerItem.Name = "LabelComputerItem";
             this.LabelComputerItem.Size = new System.Drawing.Size(185, 25);
@@ -294,7 +306,9 @@ namespace ZephyrNetCafeGUI
             // LabelActiveComputer
             // 
             this.LabelActiveComputer.AutoSize = true;
+            this.LabelActiveComputer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LabelActiveComputer.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LabelActiveComputer.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.LabelActiveComputer.Location = new System.Drawing.Point(30, 47);
             this.LabelActiveComputer.Name = "LabelActiveComputer";
             this.LabelActiveComputer.Size = new System.Drawing.Size(157, 25);
@@ -304,15 +318,17 @@ namespace ZephyrNetCafeGUI
             // LabelWelcomeAdmin
             // 
             this.LabelWelcomeAdmin.AutoSize = true;
-            this.LabelWelcomeAdmin.ForeColor = System.Drawing.Color.Red;
+            this.LabelWelcomeAdmin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LabelWelcomeAdmin.ForeColor = System.Drawing.Color.White;
             this.LabelWelcomeAdmin.Location = new System.Drawing.Point(30, 23);
             this.LabelWelcomeAdmin.Name = "LabelWelcomeAdmin";
-            this.LabelWelcomeAdmin.Size = new System.Drawing.Size(122, 15);
+            this.LabelWelcomeAdmin.Size = new System.Drawing.Size(176, 21);
             this.LabelWelcomeAdmin.TabIndex = 0;
             this.LabelWelcomeAdmin.Text = "Welcome, Manager x!";
             // 
             // TabPageShopItem
             // 
+            this.TabPageShopItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.TabPageShopItem.Controls.Add(this.vScrollBar3);
             this.TabPageShopItem.Controls.Add(this.ButtonAddShopItem);
             this.TabPageShopItem.Controls.Add(this.ButtonEditShopItem);
@@ -322,10 +338,9 @@ namespace ZephyrNetCafeGUI
             this.TabPageShopItem.Location = new System.Drawing.Point(4, 24);
             this.TabPageShopItem.Name = "TabPageShopItem";
             this.TabPageShopItem.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPageShopItem.Size = new System.Drawing.Size(1079, 572);
+            this.TabPageShopItem.Size = new System.Drawing.Size(1078, 609);
             this.TabPageShopItem.TabIndex = 2;
             this.TabPageShopItem.Text = "Shop Items Management";
-            this.TabPageShopItem.UseVisualStyleBackColor = true;
             // 
             // vScrollBar3
             // 
@@ -336,32 +351,47 @@ namespace ZephyrNetCafeGUI
             // 
             // ButtonAddShopItem
             // 
-            this.ButtonAddShopItem.Location = new System.Drawing.Point(740, 505);
+            this.ButtonAddShopItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
+            this.ButtonAddShopItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonAddShopItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonAddShopItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ButtonAddShopItem.ForeColor = System.Drawing.Color.White;
+            this.ButtonAddShopItem.Location = new System.Drawing.Point(711, 538);
             this.ButtonAddShopItem.Name = "ButtonAddShopItem";
             this.ButtonAddShopItem.Size = new System.Drawing.Size(113, 37);
             this.ButtonAddShopItem.TabIndex = 2;
             this.ButtonAddShopItem.Text = "Add Item";
-            this.ButtonAddShopItem.UseVisualStyleBackColor = true;
+            this.ButtonAddShopItem.UseVisualStyleBackColor = false;
             this.ButtonAddShopItem.Click += new System.EventHandler(this.ButtonAddShopItem_Click);
             // 
             // ButtonEditShopItem
             // 
-            this.ButtonEditShopItem.Location = new System.Drawing.Point(859, 505);
+            this.ButtonEditShopItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
+            this.ButtonEditShopItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonEditShopItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonEditShopItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ButtonEditShopItem.ForeColor = System.Drawing.Color.White;
+            this.ButtonEditShopItem.Location = new System.Drawing.Point(830, 538);
             this.ButtonEditShopItem.Name = "ButtonEditShopItem";
             this.ButtonEditShopItem.Size = new System.Drawing.Size(113, 37);
             this.ButtonEditShopItem.TabIndex = 2;
             this.ButtonEditShopItem.Text = "Edit Item";
-            this.ButtonEditShopItem.UseVisualStyleBackColor = true;
+            this.ButtonEditShopItem.UseVisualStyleBackColor = false;
             this.ButtonEditShopItem.Click += new System.EventHandler(this.ButtonEditShopItem_Click);
             // 
             // ButtonDeleteShopItem
             // 
-            this.ButtonDeleteShopItem.Location = new System.Drawing.Point(978, 505);
+            this.ButtonDeleteShopItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.ButtonDeleteShopItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonDeleteShopItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonDeleteShopItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ButtonDeleteShopItem.ForeColor = System.Drawing.Color.White;
+            this.ButtonDeleteShopItem.Location = new System.Drawing.Point(949, 538);
             this.ButtonDeleteShopItem.Name = "ButtonDeleteShopItem";
             this.ButtonDeleteShopItem.Size = new System.Drawing.Size(113, 37);
             this.ButtonDeleteShopItem.TabIndex = 2;
             this.ButtonDeleteShopItem.Text = "Delete Item";
-            this.ButtonDeleteShopItem.UseVisualStyleBackColor = true;
+            this.ButtonDeleteShopItem.UseVisualStyleBackColor = false;
             this.ButtonDeleteShopItem.Click += new System.EventHandler(this.ButtonDeleteShopItem_Click);
             // 
             // DataGridViewShopItem
@@ -374,12 +404,12 @@ namespace ZephyrNetCafeGUI
             this.ColumnShopItemName,
             this.ColumnShopItemPrice,
             this.ColumnShopItemQuantity});
-            this.DataGridViewShopItem.Location = new System.Drawing.Point(13, 46);
+            this.DataGridViewShopItem.Location = new System.Drawing.Point(32, 56);
             this.DataGridViewShopItem.MultiSelect = false;
             this.DataGridViewShopItem.Name = "DataGridViewShopItem";
             this.DataGridViewShopItem.ReadOnly = true;
             this.DataGridViewShopItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewShopItem.Size = new System.Drawing.Size(804, 270);
+            this.DataGridViewShopItem.Size = new System.Drawing.Size(1030, 463);
             this.DataGridViewShopItem.TabIndex = 1;
             // 
             // ColumnShopItemID
@@ -410,7 +440,8 @@ namespace ZephyrNetCafeGUI
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(45, 18);
+            this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label13.Location = new System.Drawing.Point(32, 28);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(228, 25);
             this.label13.TabIndex = 0;
@@ -418,6 +449,7 @@ namespace ZephyrNetCafeGUI
             // 
             // TabPageUsers
             // 
+            this.TabPageUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.TabPageUsers.Controls.Add(this.vScrollBar2);
             this.TabPageUsers.Controls.Add(this.ButtonEditUser);
             this.TabPageUsers.Controls.Add(this.ButtonDeleteUser);
@@ -426,10 +458,9 @@ namespace ZephyrNetCafeGUI
             this.TabPageUsers.Location = new System.Drawing.Point(4, 24);
             this.TabPageUsers.Name = "TabPageUsers";
             this.TabPageUsers.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPageUsers.Size = new System.Drawing.Size(1079, 572);
+            this.TabPageUsers.Size = new System.Drawing.Size(1078, 609);
             this.TabPageUsers.TabIndex = 1;
             this.TabPageUsers.Text = "User Management";
-            this.TabPageUsers.UseVisualStyleBackColor = true;
             // 
             // vScrollBar2
             // 
@@ -440,22 +471,32 @@ namespace ZephyrNetCafeGUI
             // 
             // ButtonEditUser
             // 
-            this.ButtonEditUser.Location = new System.Drawing.Point(695, 515);
+            this.ButtonEditUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
+            this.ButtonEditUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonEditUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonEditUser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ButtonEditUser.ForeColor = System.Drawing.Color.White;
+            this.ButtonEditUser.Location = new System.Drawing.Point(825, 550);
             this.ButtonEditUser.Name = "ButtonEditUser";
             this.ButtonEditUser.Size = new System.Drawing.Size(113, 37);
             this.ButtonEditUser.TabIndex = 4;
             this.ButtonEditUser.Text = "Edit User";
-            this.ButtonEditUser.UseVisualStyleBackColor = true;
+            this.ButtonEditUser.UseVisualStyleBackColor = false;
             this.ButtonEditUser.Click += new System.EventHandler(this.ButtonEditUser_Click);
             // 
             // ButtonDeleteUser
             // 
-            this.ButtonDeleteUser.Location = new System.Drawing.Point(814, 515);
+            this.ButtonDeleteUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.ButtonDeleteUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonDeleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonDeleteUser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ButtonDeleteUser.ForeColor = System.Drawing.Color.White;
+            this.ButtonDeleteUser.Location = new System.Drawing.Point(944, 550);
             this.ButtonDeleteUser.Name = "ButtonDeleteUser";
             this.ButtonDeleteUser.Size = new System.Drawing.Size(113, 37);
             this.ButtonDeleteUser.TabIndex = 5;
             this.ButtonDeleteUser.Text = "Delete User";
-            this.ButtonDeleteUser.UseVisualStyleBackColor = true;
+            this.ButtonDeleteUser.UseVisualStyleBackColor = false;
             this.ButtonDeleteUser.Click += new System.EventHandler(this.ButtonDeleteUser_Click);
             // 
             // DataGridViewUserList
@@ -476,13 +517,57 @@ namespace ZephyrNetCafeGUI
             this.DataGridViewUserList.Name = "DataGridViewUserList";
             this.DataGridViewUserList.ReadOnly = true;
             this.DataGridViewUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DataGridViewUserList.Size = new System.Drawing.Size(976, 448);
+            this.DataGridViewUserList.Size = new System.Drawing.Size(1028, 474);
             this.DataGridViewUserList.TabIndex = 1;
+            // 
+            // ColumnUserID
+            // 
+            this.ColumnUserID.HeaderText = "User ID";
+            this.ColumnUserID.Name = "ColumnUserID";
+            this.ColumnUserID.ReadOnly = true;
+            // 
+            // ColumnUserUsername
+            // 
+            this.ColumnUserUsername.HeaderText = "Username";
+            this.ColumnUserUsername.Name = "ColumnUserUsername";
+            this.ColumnUserUsername.ReadOnly = true;
+            // 
+            // ColumnUserName
+            // 
+            this.ColumnUserName.HeaderText = "Name";
+            this.ColumnUserName.Name = "ColumnUserName";
+            this.ColumnUserName.ReadOnly = true;
+            // 
+            // ColumnUserEmail
+            // 
+            this.ColumnUserEmail.HeaderText = "Email";
+            this.ColumnUserEmail.Name = "ColumnUserEmail";
+            this.ColumnUserEmail.ReadOnly = true;
+            // 
+            // ColumnUserDuration
+            // 
+            this.ColumnUserDuration.HeaderText = "Duration Remaining";
+            this.ColumnUserDuration.Name = "ColumnUserDuration";
+            this.ColumnUserDuration.ReadOnly = true;
+            // 
+            // ColumnUserRole
+            // 
+            this.ColumnUserRole.HeaderText = "Role";
+            this.ColumnUserRole.Name = "ColumnUserRole";
+            this.ColumnUserRole.ReadOnly = true;
+            // 
+            // ColumnUserPassword
+            // 
+            this.ColumnUserPassword.HeaderText = "Password";
+            this.ColumnUserPassword.Name = "ColumnUserPassword";
+            this.ColumnUserPassword.ReadOnly = true;
+            this.ColumnUserPassword.Visible = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(29, 26);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(170, 25);
@@ -491,6 +576,7 @@ namespace ZephyrNetCafeGUI
             // 
             // tabPage4
             // 
+            this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.tabPage4.Controls.Add(this.DataGridViewTransactionItems);
             this.tabPage4.Controls.Add(this.DataGridViewTransactions);
             this.tabPage4.Controls.Add(this.vScrollBar1);
@@ -498,10 +584,9 @@ namespace ZephyrNetCafeGUI
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1079, 572);
+            this.tabPage4.Size = new System.Drawing.Size(1078, 609);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Transaction Report Management";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // DataGridViewTransactionItems
             // 
@@ -591,6 +676,7 @@ namespace ZephyrNetCafeGUI
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(33, 32);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(292, 25);
@@ -657,53 +743,11 @@ namespace ZephyrNetCafeGUI
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
-            // ColumnUserID
-            // 
-            this.ColumnUserID.HeaderText = "User ID";
-            this.ColumnUserID.Name = "ColumnUserID";
-            this.ColumnUserID.ReadOnly = true;
-            // 
-            // ColumnUserUsername
-            // 
-            this.ColumnUserUsername.HeaderText = "Username";
-            this.ColumnUserUsername.Name = "ColumnUserUsername";
-            this.ColumnUserUsername.ReadOnly = true;
-            // 
-            // ColumnUserName
-            // 
-            this.ColumnUserName.HeaderText = "Name";
-            this.ColumnUserName.Name = "ColumnUserName";
-            this.ColumnUserName.ReadOnly = true;
-            // 
-            // ColumnUserEmail
-            // 
-            this.ColumnUserEmail.HeaderText = "Email";
-            this.ColumnUserEmail.Name = "ColumnUserEmail";
-            this.ColumnUserEmail.ReadOnly = true;
-            // 
-            // ColumnUserDuration
-            // 
-            this.ColumnUserDuration.HeaderText = "Duration Remaining";
-            this.ColumnUserDuration.Name = "ColumnUserDuration";
-            this.ColumnUserDuration.ReadOnly = true;
-            // 
-            // ColumnUserRole
-            // 
-            this.ColumnUserRole.HeaderText = "Role";
-            this.ColumnUserRole.Name = "ColumnUserRole";
-            this.ColumnUserRole.ReadOnly = true;
-            // 
-            // ColumnUserPassword
-            // 
-            this.ColumnUserPassword.HeaderText = "Password";
-            this.ColumnUserPassword.Name = "ColumnUserPassword";
-            this.ColumnUserPassword.ReadOnly = true;
-            this.ColumnUserPassword.Visible = false;
-            // 
             // AdminDashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(1120, 673);
             this.Controls.Add(this.TabControlComputer);
             this.Name = "AdminDashboardForm";

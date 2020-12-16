@@ -40,22 +40,32 @@ namespace ZephyrNetCafeGUI
             // 
             // ButtonClose
             // 
-            this.ButtonClose.Location = new System.Drawing.Point(179, 83);
+            this.ButtonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.ButtonClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonClose.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ButtonClose.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ButtonClose.Location = new System.Drawing.Point(191, 83);
             this.ButtonClose.Name = "ButtonClose";
             this.ButtonClose.Size = new System.Drawing.Size(99, 38);
             this.ButtonClose.TabIndex = 11;
             this.ButtonClose.Text = "Close";
-            this.ButtonClose.UseVisualStyleBackColor = true;
+            this.ButtonClose.UseVisualStyleBackColor = false;
             this.ButtonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
             // ButtonAdd
             // 
-            this.ButtonAdd.Location = new System.Drawing.Point(19, 83);
+            this.ButtonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
+            this.ButtonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ButtonAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ButtonAdd.Location = new System.Drawing.Point(86, 83);
             this.ButtonAdd.Name = "ButtonAdd";
             this.ButtonAdd.Size = new System.Drawing.Size(99, 38);
             this.ButtonAdd.TabIndex = 12;
             this.ButtonAdd.Text = "Add";
-            this.ButtonAdd.UseVisualStyleBackColor = true;
+            this.ButtonAdd.UseVisualStyleBackColor = false;
             this.ButtonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // NumericPrice
@@ -77,7 +87,7 @@ namespace ZephyrNetCafeGUI
             0,
             0});
             this.NumericPrice.Name = "NumericPrice";
-            this.NumericPrice.Size = new System.Drawing.Size(120, 23);
+            this.NumericPrice.Size = new System.Drawing.Size(180, 23);
             this.NumericPrice.TabIndex = 10;
             this.NumericPrice.Value = new decimal(new int[] {
             100,
@@ -95,6 +105,7 @@ namespace ZephyrNetCafeGUI
             // LabelPrice
             // 
             this.LabelPrice.AutoSize = true;
+            this.LabelPrice.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.LabelPrice.Location = new System.Drawing.Point(17, 56);
             this.LabelPrice.Name = "LabelPrice";
             this.LabelPrice.Size = new System.Drawing.Size(33, 15);
@@ -104,6 +115,7 @@ namespace ZephyrNetCafeGUI
             // LabelName
             // 
             this.LabelName.AutoSize = true;
+            this.LabelName.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.LabelName.Location = new System.Drawing.Point(17, 16);
             this.LabelName.Name = "LabelName";
             this.LabelName.Size = new System.Drawing.Size(66, 15);
@@ -114,6 +126,7 @@ namespace ZephyrNetCafeGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(302, 135);
             this.Controls.Add(this.ButtonClose);
             this.Controls.Add(this.ButtonAdd);
@@ -122,7 +135,7 @@ namespace ZephyrNetCafeGUI
             this.Controls.Add(this.LabelPrice);
             this.Controls.Add(this.LabelName);
             this.Name = "AddShopItemForm";
-            this.Text = "AddItemForm";
+            this.Text = "Add Item";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddShopItemForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.NumericPrice)).EndInit();
             this.ResumeLayout(false);

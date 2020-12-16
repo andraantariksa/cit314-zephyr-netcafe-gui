@@ -40,22 +40,30 @@ namespace ZephyrNetCafeGUI
             // 
             // ButtonClose
             // 
+            this.ButtonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.ButtonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonClose.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ButtonClose.ForeColor = System.Drawing.Color.White;
             this.ButtonClose.Location = new System.Drawing.Point(179, 97);
             this.ButtonClose.Name = "ButtonClose";
             this.ButtonClose.Size = new System.Drawing.Size(116, 33);
             this.ButtonClose.TabIndex = 8;
             this.ButtonClose.Text = "Close";
-            this.ButtonClose.UseVisualStyleBackColor = true;
+            this.ButtonClose.UseVisualStyleBackColor = false;
             this.ButtonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
             // ButtonSave
             // 
-            this.ButtonSave.Location = new System.Drawing.Point(11, 97);
+            this.ButtonSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(156)))), ((int)(((byte)(18)))));
+            this.ButtonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonSave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ButtonSave.ForeColor = System.Drawing.Color.White;
+            this.ButtonSave.Location = new System.Drawing.Point(57, 97);
             this.ButtonSave.Name = "ButtonSave";
             this.ButtonSave.Size = new System.Drawing.Size(116, 33);
             this.ButtonSave.TabIndex = 9;
             this.ButtonSave.Text = "Save Changes";
-            this.ButtonSave.UseVisualStyleBackColor = true;
+            this.ButtonSave.UseVisualStyleBackColor = false;
             this.ButtonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // NumericPrice
@@ -77,7 +85,7 @@ namespace ZephyrNetCafeGUI
             0,
             0});
             this.NumericPrice.Name = "NumericPrice";
-            this.NumericPrice.Size = new System.Drawing.Size(120, 23);
+            this.NumericPrice.Size = new System.Drawing.Size(204, 23);
             this.NumericPrice.TabIndex = 7;
             this.NumericPrice.Value = new decimal(new int[] {
             100,
@@ -89,13 +97,14 @@ namespace ZephyrNetCafeGUI
             // 
             this.TextBoxName.Location = new System.Drawing.Point(91, 12);
             this.TextBoxName.Name = "TextBoxName";
-            this.TextBoxName.Size = new System.Drawing.Size(184, 23);
+            this.TextBoxName.Size = new System.Drawing.Size(204, 23);
             this.TextBoxName.TabIndex = 6;
             // 
             // LabelPrice
             // 
             this.LabelPrice.AutoSize = true;
             this.LabelPrice.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LabelPrice.ForeColor = System.Drawing.Color.White;
             this.LabelPrice.Location = new System.Drawing.Point(11, 57);
             this.LabelPrice.Name = "LabelPrice";
             this.LabelPrice.Size = new System.Drawing.Size(67, 17);
@@ -106,6 +115,7 @@ namespace ZephyrNetCafeGUI
             // 
             this.LabelName.AutoSize = true;
             this.LabelName.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LabelName.ForeColor = System.Drawing.Color.White;
             this.LabelName.Location = new System.Drawing.Point(11, 13);
             this.LabelName.Name = "LabelName";
             this.LabelName.Size = new System.Drawing.Size(74, 17);
@@ -116,6 +126,7 @@ namespace ZephyrNetCafeGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(308, 143);
             this.Controls.Add(this.ButtonClose);
             this.Controls.Add(this.ButtonSave);
@@ -124,7 +135,7 @@ namespace ZephyrNetCafeGUI
             this.Controls.Add(this.LabelPrice);
             this.Controls.Add(this.LabelName);
             this.Name = "EditShopItemForm";
-            this.Text = "EditShopItemForm";
+            this.Text = "Edit Shop";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EditShopItemForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.NumericPrice)).EndInit();
             this.ResumeLayout(false);

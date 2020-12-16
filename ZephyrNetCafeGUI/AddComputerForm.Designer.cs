@@ -49,12 +49,13 @@ namespace ZephyrNetCafeGUI
             // 
             this.TextBoxComputerName.Location = new System.Drawing.Point(12, 27);
             this.TextBoxComputerName.Name = "TextBoxComputerName";
-            this.TextBoxComputerName.Size = new System.Drawing.Size(199, 23);
+            this.TextBoxComputerName.Size = new System.Drawing.Size(300, 23);
             this.TextBoxComputerName.TabIndex = 4;
             // 
             // LabelPCName
             // 
             this.LabelPCName.AutoSize = true;
+            this.LabelPCName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.LabelPCName.Location = new System.Drawing.Point(12, 9);
             this.LabelPCName.Name = "LabelPCName";
             this.LabelPCName.Size = new System.Drawing.Size(96, 15);
@@ -64,6 +65,7 @@ namespace ZephyrNetCafeGUI
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(12, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 15);
@@ -72,28 +74,39 @@ namespace ZephyrNetCafeGUI
             // 
             // ButtonAdd
             // 
-            this.ButtonAdd.Location = new System.Drawing.Point(12, 232);
+            this.ButtonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
+            this.ButtonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ButtonAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ButtonAdd.Location = new System.Drawing.Point(132, 233);
             this.ButtonAdd.Name = "ButtonAdd";
             this.ButtonAdd.Size = new System.Drawing.Size(87, 34);
             this.ButtonAdd.TabIndex = 7;
             this.ButtonAdd.Text = "Add";
-            this.ButtonAdd.UseVisualStyleBackColor = true;
+            this.ButtonAdd.UseVisualStyleBackColor = false;
             this.ButtonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // ButtonClose
             // 
+            this.ButtonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
+            this.ButtonClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonClose.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ButtonClose.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.ButtonClose.Location = new System.Drawing.Point(225, 234);
             this.ButtonClose.Name = "ButtonClose";
             this.ButtonClose.Size = new System.Drawing.Size(88, 32);
             this.ButtonClose.TabIndex = 8;
             this.ButtonClose.Text = "Close";
-            this.ButtonClose.UseVisualStyleBackColor = true;
+            this.ButtonClose.UseVisualStyleBackColor = false;
             this.ButtonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
             // AddComputerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(324, 276);
             this.Controls.Add(this.ButtonClose);
             this.Controls.Add(this.ButtonAdd);
@@ -102,7 +115,7 @@ namespace ZephyrNetCafeGUI
             this.Controls.Add(this.TextBoxComputerName);
             this.Controls.Add(this.RichTextBoxComputerSpec);
             this.Name = "AddComputerForm";
-            this.Text = "AddComputerForm";
+            this.Text = "Add Computer";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddComputerForm_FormClosed);
             this.Load += new System.EventHandler(this.AddComputerForm_Load);
             this.ResumeLayout(false);
